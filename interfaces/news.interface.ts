@@ -1,4 +1,8 @@
-```typescript
+export enum NewsTag {
+  NEWS = 'news',
+  MEDIA = 'media',
+}
+
 export interface News {
   id: number;
   /** 發布日期 */
@@ -17,9 +21,3 @@ export interface News {
    */
   image_url?: string;
 }
-
-export enum NewsTag {
-  News = 'news',
-  Media = 'media',
-}
-```
