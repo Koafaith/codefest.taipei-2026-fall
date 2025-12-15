@@ -71,7 +71,7 @@ watch(
               </div>
 
               <!-- 多圖模式 -->
-              <div v-else-if="props.activeWinningTeam?.image_list?.length" class="lg:mb-0 mb-6">
+              <div v-else class="lg:mb-0 mb-6">
                 <div class="relative">
                   <Swiper
                     :space-between="10"
