@@ -14,9 +14,12 @@ const route = useRoute();
 // 只有在競賽規則頁時顯示報名按鈕
 const showApplyBtn = computed(() => route.path.startsWith(ROUTE_PATHS.RULES));
 
+// 計算報名截止日期
+const deadlineDate = computed(() => new Date(tm('schedule.apply_count_down')));
+
+// 判斷報名是否已截止
 const isRegistrationClosed = computed(() => {
-  const deadline = new Date(tm('schedule.apply_count_down'));
-  return new Date() > deadline;
+  return new Date() > deadlineDate.value;
 });
 </script>
 
