@@ -11,6 +11,7 @@ import type { PastVideo, PastWinningTeam } from '~/interfaces/past.interface';
 import type { Sponsor } from '~/interfaces/sponsor.interface';
 import { useDialogStore } from '~/stores/dialogStore';
 import { ROUTE_PATHS } from '~/constants/routes';
+import { DIALOG_NAMES } from '~/constants/dialogs';
 
 const dialogStore = useDialogStore();
 const { activeDialog } = storeToRefs(dialogStore);
@@ -274,8 +275,8 @@ const newsKeyword = ref('');
                 class="min-w-60"
                 :icon-type="isRegistrationClosed ? null : 'arrow'"
                 :disabled="isRegistrationClosed"
-                @click="dialogStore.openDialog('apply')"
-                @keydown.enter.prevent="dialogStore.openDialog('apply')"
+                @click="dialogStore.openDialog(DIALOG_NAMES.APPLY)"
+                @keydown.enter.prevent="dialogStore.openDialog(DIALOG_NAMES.APPLY)"
               >
                 {{ isRegistrationClosed ? '報名截止' : '立即報名' }}
               </AtomButton>
@@ -320,11 +321,11 @@ const newsKeyword = ref('');
                           x: index + 1,
                           y: 31,
                         }"
-                        href="javascript:void(0)"
+                        href="#"
                         class="m-1 inline-block"
-                        @click="
+                        @click.prevent="
                           activeWinningTeam = group;
-                          dialogStore.openDialog('winningTeam');
+                          dialogStore.openDialog(DIALOG_NAMES.WINNING_TEAM);
                         "
                       >
                         <div class="video-box relative">
@@ -361,10 +362,10 @@ const newsKeyword = ref('');
                   class="mb-8"
                 >
                   <a
-                    href="javascript:void(0)"
-                    @click="
+                    href="#"
+                    @click.prevent="
                       activeWinningTeam = group;
-                      dialogStore.openDialog('winningTeam');
+                      dialogStore.openDialog(DIALOG_NAMES.WINNING_TEAM);
                     "
                   >
                     <div class="video-box relative">
@@ -573,8 +574,8 @@ const newsKeyword = ref('');
                   :icon-type="isRegistrationClosed ? null : 'arrow'"
                   :disabled="isRegistrationClosed"
                   class="w-1/2 lg:w-auto lg:min-w-60"
-                  @click="dialogStore.openDialog('apply')"
-                  @keydown.enter.prevent="dialogStore.openDialog('apply')"
+                  @click="dialogStore.openDialog(DIALOG_NAMES.APPLY)"
+                  @keydown.enter.prevent="dialogStore.openDialog(DIALOG_NAMES.APPLY)"
                 >
                   {{ isRegistrationClosed ? '報名截止' : '立即報名' }}
                 </AtomButton> -->
@@ -986,16 +987,16 @@ const newsKeyword = ref('');
                         x: 1,
                         y: 21 + index,
                       }"
-                      href="javascript:void(0)"
+                      href="#"
                       class="block border border-white p-4 transition hover:bg-primary-50 hover:text-primary-500 m-1"
-                      @click="
+                      @click.prevent="
                         activeNews = news;
-                        dialogStore.openDialog('news');
+                        dialogStore.openDialog(DIALOG_NAMES.NEWS);
                         showPopup(news);
                       "
                       @keydown.enter.prevent="
                         activeNews = news;
-                        dialogStore.openDialog('news');
+                        dialogStore.openDialog(DIALOG_NAMES.NEWS);
                         showPopup(news);
                       "
                     >
@@ -1129,7 +1130,7 @@ const newsKeyword = ref('');
       </section>
     </template>
     <OrganismNewsDialog
-      :is-open="activeDialog === 'news'"
+      :is-open="activeDialog === DIALOG_NAMES.NEWS"
       :active-news="activeNews"
       @close="
         activeNews = null;
@@ -1137,7 +1138,7 @@ const newsKeyword = ref('');
       "
     />
     <OrganismWinningTeamDialog
-      :is-open="activeDialog === 'winningTeam'"
+      :is-open="activeDialog === DIALOG_NAMES.WINNING_TEAM"
       :active-winning-team="activeWinningTeam"
       @close="
         activeWinningTeam = null;
