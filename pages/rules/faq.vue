@@ -54,7 +54,7 @@ const activeTab = ref(0);
           <p class="text-left text-lg text-white">{{ index + 1 }}. {{ item.title }}</p>
           <img
             :src="open ? '@/assets/images/icons/white-minus.svg' : '@/assets/images/icons/white-plus.svg'"
-            :alt="open ? 'Collapse section' : 'Expand section'"
+            :alt="open ? '收合常見問題' : '展開常見問題'"
             class="absolute right-5 lg:w-[40px] w-[20px]"
           />
         </DisclosureButton>
@@ -67,3 +67,4 @@ const activeTab = ref(0);
     </template>
   </div>
 </template>
+```
