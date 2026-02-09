@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia';
 import { ref, watch } from 'vue';
+import type { DialogName } from '~/constants/dialogs';
 
 type DialogName = 'apply' | 'news' | 'mobileMenu' | 'winningTeam' | 'photo';
 
