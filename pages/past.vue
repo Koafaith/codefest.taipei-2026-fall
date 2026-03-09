@@ -7,29 +7,37 @@ const dialogStore = useDialogStore();
 const { activeDialog } = storeToRefs(dialogStore);
 const runtimeConfig = useRuntimeConfig();
 
+/**
+ * 從 i18n 獲取列表數據，並將可能為 Object 的數據轉換為 Array
+ * @param path i18n 路徑
+ * @returns 轉換後的列表 Array
+ */
+function getI18nList<T>(path: string): T[] {
+  const data = tm(path);
+  // 由於 tm(path) 返回值可能是 Record<string, T> 或 T[]，這裡進行類型斷言以符合 T[]
+  return Array.isArray(data) ? (data as T[]) : (Object.values(data) as T[]);
+}
+
 /** 獲獎團隊 */
-const winningTeamList = computed<PastWinningTeam[]>(() => {
-  const data = tm('past.winning_teams.list');
-  return Array.isArray(data) ? data : Object.values(data); // 轉換 Object 為 Array
-});
+const winningTeamList = computed<PastWinningTeam[]>(() =>
+  getI18nList<PastWinningTeam>('past.winning_teams.list')
+);
 
 /** 選中的獲獎團隊 */
 const activeWinningTeam = ref<PastWinningTeam | null>(null);
 
 /** 照片回顧 */
-const photoList = computed<PastPhoto[]>(() => {
-  const data = tm('past.photos.list');
-  return Array.isArray(data) ? data : Object.values(data); // 轉換 Object 為 Array
-});
+const photoList = computed<PastPhoto[]>(() =>
+  getI18nList<PastPhoto>('past.photos.list')
+);
 
 /** 選中的照片回顧 */
 const activePhoto = ref<PastPhoto | null>(null);
 
 /** 影音回顧 */
-const videoList = computed<PastVideo[]>(() => {
-  const data = tm('past.videos.list');
-  return Array.isArray(data) ? data : Object.values(data); // 轉換 Object 為 Array
-});
+const videoList = computed<PastVideo[]>(() =>
+  getI18nList<PastVideo>('past.videos.list')
+);
 </script>
 
 <template>
