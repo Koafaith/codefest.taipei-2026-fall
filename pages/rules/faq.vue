@@ -67,4 +67,3 @@ const activeTab = ref(0);
     </template>
   </div>
 </template>
-```
