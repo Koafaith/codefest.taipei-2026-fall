@@ -1,13 +1,27 @@
 <script setup lang="ts">
 import { Dialog, DialogPanel, DialogTitle, DialogDescription } from '@headlessui/vue';
 import type { News } from '~/interfaces/news.interface';
+import { computed } from 'vue'; // 引入 computed
 
-defineProps<{
+const props = defineProps<{
   isOpen: boolean;
   activeNews?: News | null;
 }>();
 
 const emit = defineEmits(['close']);
+
+// 判斷是否為「最新消息」標籤
+const isNewsTag = computed(() => props.activeNews?.tag === 'news');
+
+// 根據標籤類型顯示對應文字
+const displayTagText = computed(() => (isNewsTag.value ? '最新消息' : '媒體報導'));
+
+// 根據標籤類型動態應用顏色類別
+const tagOverrideClasses = computed(() =>
+  isNewsTag.value
+    ? 'bg-primary-50 text-primary-500'
+    : '' // 若不是 news 則不額外添加覆蓋類別，保留預設
+);
 </script>
 
 <template>
@@ -30,9 +44,9 @@ const emit = defineEmits(['close']);
             <span class="mr-2">{{ activeNews?.date }}</span>
             <div
               class="text-sm bg-secondary-500 text-white px-2 py-1 shadow-md"
-              :class="{ 'bg-primary-50 text-primary-500': activeNews?.tag === 'news' }"
+              :class="tagOverrideClasses"
             >
-              <span>{{ activeNews?.tag === 'news' ? '最新消息' : '媒體報導' }}</span>
+              <span>{{ displayTagText }}</span>
             </div>
           </div>
           <DialogTitle class="text-primary-500 text-2xl pb-4 mb-4 custom-dashed dashed-black">
