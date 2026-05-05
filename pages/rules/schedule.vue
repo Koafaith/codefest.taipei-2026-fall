@@ -16,15 +16,15 @@ const scheduleList = computed(() => {
   <div>
     <Disclosure
       v-for="(tab, index) in scheduleList"
-      :key="index"
+      :key="tab.id" <!-- 核心改動：使用 tab.id 作為 key，提供更穩定的識別 -->
       v-slot="{ open }"
-      :default-open="index === 2"
+      :default-open="index === 2" <!-- 保持原有的依賴索引的 default-open 邏輯 -->
     >
       <DisclosureButton
         v-kb-focus="{
-          id: `rules-disclosure-2-${index + 30}`,
+          id: `rules-disclosure-2-${tab.id}`, <!-- 核心改動：使用 tab.id 建立更穩定的 DOM ID -->
           x: 2,
-          y: index + 30,
+          y: index + 30, <!-- 保持原有的依賴索引的 y 座標邏輯 -->
         }"
         class="w-full flex items-center justify-between p-6 border border-t-white border-b-white focus-border-item"
         :class="{ 'bg-primary-50 lg:bg-primary-500': open }"
@@ -103,3 +103,4 @@ const scheduleList = computed(() => {
     </Disclosure>
   </div>
 </template>
+```
