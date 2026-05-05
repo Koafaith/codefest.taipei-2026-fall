@@ -2,6 +2,7 @@
 import { computed } from 'vue'; // 引入 computed
 import { Dialog, DialogPanel, DialogTitle, DialogDescription } from '@headlessui/vue';
 import type { News } from '~/interfaces/news.interface';
+import { computed } from 'vue'; // 引入 computed
 
 const props = defineProps<{ // 將 props 儲存為常數，方便在 script setup 中使用
   isOpen: boolean;
@@ -10,17 +11,18 @@ const props = defineProps<{ // 將 props 儲存為常數，方便在 script setu
 
 const emit = defineEmits(['close']);
 
-// 重構：將標籤的顯示文字和動態樣式邏輯提取到一個計算屬性中
-const tagInfo = computed(() => {
-  const isNews = props.activeNews?.tag === 'news';
-  return {
-    text: isNews ? '最新消息' : '媒體報導',
-    // 根據 tag 判斷應用的動態 CSS 類別
-    dynamicClasses: isNews
-      ? 'bg-primary-50 text-primary-500'
-      : 'bg-secondary-500 text-white'
-  };
-});
+// 判斷是否為「最新消息」標籤
+const isNewsTag = computed(() => props.activeNews?.tag === 'news');
+
+// 根據標籤類型顯示對應文字
+const displayTagText = computed(() => (isNewsTag.value ? '最新消息' : '媒體報導'));
+
+// 根據標籤類型動態應用顏色類別
+const tagOverrideClasses = computed(() =>
+  isNewsTag.value
+    ? 'bg-primary-50 text-primary-500'
+    : '' // 若不是 news 則不額外添加覆蓋類別，保留預設
+);
 </script>
 
 <template>
@@ -42,10 +44,10 @@ const tagInfo = computed(() => {
           <div class="text-lg mb-2 flex items-center">
             <span class="mr-2">{{ props.activeNews?.date }}</span>
             <div
-              class="text-sm px-2 py-1 shadow-md"
-              :class="tagInfo.dynamicClasses"
+              class="text-sm bg-secondary-500 text-white px-2 py-1 shadow-md"
+              :class="tagOverrideClasses"
             >
-              <span>{{ tagInfo.text }}</span>
+              <span>{{ displayTagText }}</span>
             </div>
           </div>
           <DialogTitle class="text-primary-500 text-2xl pb-4 mb-4 custom-dashed dashed-black">
