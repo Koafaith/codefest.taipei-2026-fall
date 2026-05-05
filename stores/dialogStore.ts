@@ -1,5 +1,8 @@
 import { defineStore } from 'pinia';
 import { ref, watch } from 'vue';
+import type { DialogName } from '~/constants/dialogs';
+
+type DialogName = 'apply' | 'news' | 'mobileMenu' | 'winningTeam' | 'photo';
 
 // 提取所有可能的對話框名稱為一個聯集型別，提升可讀性和未來擴展性
 type DialogName = 'apply' | 'news' | 'mobileMenu' | 'winningTeam' | 'photo';
