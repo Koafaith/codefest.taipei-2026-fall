@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import { computed } from 'vue'; // 引入 computed
+import { computed } from 'vue';
 import { Dialog, DialogPanel, DialogTitle, DialogDescription } from '@headlessui/vue';
 import type { News } from '~/interfaces/news.interface';
-import { computed } from 'vue'; // 引入 computed
 
-const props = defineProps<{ // 將 props 儲存為常數，方便在 script setup 中使用
+const props = defineProps<{
   isOpen: boolean;
   activeNews?: News | null;
 }>();
