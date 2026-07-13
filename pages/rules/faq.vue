@@ -2,12 +2,15 @@
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue';
 const { tm } = useI18n();
 
-/** FAQ */
-const faqList = computed(() => {
+/**
+ * 取得 FAQ 列表並確保為陣列格式
+ */
+const getFaqList = () => {
   const data = tm('faq.list');
-  return Array.isArray(data) ? data : Object.values(data); // 轉換 Object 為 Array
-});
+  return Array.isArray(data) ? data : Object.values(data);
+};
 
+const faqList = computed(() => getFaqList());
 const activeTab = ref(0);
 </script>
 
