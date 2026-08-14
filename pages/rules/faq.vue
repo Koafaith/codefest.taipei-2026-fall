@@ -65,7 +65,7 @@ const activeTab = ref(0);
           />
         </DisclosureButton>
         <DisclosurePanel>
-          <div class="relative w-full py-4 lg:px-10 px-3 border-b border-white">
+          <div class="relative w-full py-4 lg:px-10 px-3 border-b border-white bg-[#d9fe68]">
             <AtomSaveHtml :html="item.content" />
           </div>
         </DisclosurePanel>
