@@ -2,8 +2,8 @@
 import { computed, defineProps, onMounted, onUnmounted, ref, withDefaults } from 'vue';
 
 const props = withDefaults(
-  defineProps<{ 
-    direction?: 'left' | 'right'; 
+  defineProps<{
+    direction?: 'left' | 'right';
   }>(),
   {
     direction: 'left',
@@ -27,12 +27,14 @@ onUnmounted(() => {
   clearInterval(intervalId);
 });
 
-const desktopImageSrc = computed(() => 
+const desktopImageSrc = computed(() =>
   isSecondImage.value ? 'images/section-decoration-2.svg' : 'images/section-decoration.svg'
 );
 
-const mobileImageSrc = computed(() => 
-  isSecondImage.value ? 'images/section-decoration-mobile-2.svg' : 'images/section-decoration-mobile.svg'
+const mobileImageSrc = computed(() =>
+  isSecondImage.value
+    ? 'images/section-decoration-mobile-2.svg'
+    : 'images/section-decoration-mobile.svg'
 );
 </script>
 

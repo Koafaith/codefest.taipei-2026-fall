@@ -46,7 +46,8 @@ const tag = computed(() => {
 <style lang="postcss">
 .icon-btn {
   @apply relative;
-  @apply border border-white max-w-full;
+  /** 內外兩層框線都是主色深藍 */
+  @apply border border-primary-500 max-w-full;
   &::after {
     position: absolute;
     right: 20px;
@@ -66,7 +67,8 @@ const tag = computed(() => {
 
   span {
     @apply flex items-center justify-center h-[63px];
-    @apply m-1 py-2 bg-white text-primary-500;
+    @apply m-1 py-2 border border-primary-500 text-primary-500;
+    background-color: #d9fe68;
   }
 
   &:disabled {

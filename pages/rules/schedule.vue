@@ -13,7 +13,8 @@ const scheduleList = computed(() => {
 </script>
 
 <template>
-  <div>
+  <!-- -mt-px：讓第一個區塊的上緣線與外層內容欄的上緣線重疊，不會疊成 2px -->
+  <div class="-mt-px">
     <Disclosure
       v-for="(tab, index) in scheduleList"
       :key="tab.id"
@@ -26,28 +27,25 @@ const scheduleList = computed(() => {
           x: 2,
           y: index + 30,
         }"
-        class="w-full flex items-center justify-between p-6 border border-t-white border-b-white focus-border-item"
-        :class="{ 'bg-primary-50 lg:bg-primary-500': open }"
+        class="w-full flex items-center justify-between p-6 border-t border-b border-t-white border-b-white focus-border-item"
+        :class="{ 'bg-[#d9fe68]': open }"
       >
-        <p
-          class="text-center mx-auto"
-          :class="open ? 'text-primary-500 lg:text-white' : 'text-white'"
-        >
+        <p class="text-center mx-auto text-primary-500">
           {{ tab.schedule_name }}
         </p>
         <img
-          src="@/assets/images/icons/white-down-arrow.svg"
+          src="@/assets/images/icons/primary-down-arrow.svg"
           alt="arrow"
           width="20"
           class="absolute right-5 transition-transform duration-300"
           :class="{ 'rotate-180': open }"
         />
       </DisclosureButton>
-      <DisclosurePanel class="bg-primary-300">
+      <DisclosurePanel>
         <!-- 右側內容區 -->
         <div class="flex-1 text-white">
           <div
-            class="text-center p-4 border border-b-white flex lg:flex-row flex-col items-center justify-between"
+            class="text-center p-4 border-b border-b-white flex lg:flex-row flex-col items-center justify-between"
           >
             <p class="text-xl mb-2 whitespace-pre-wrap">
               {{ tab.schedule_sub_name }}
@@ -103,4 +101,3 @@ const scheduleList = computed(() => {
     </Disclosure>
   </div>
 </template>
-```

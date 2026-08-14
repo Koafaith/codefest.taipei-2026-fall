@@ -83,7 +83,7 @@ onMounted(() => {
 
 <template>
   <div class="flex items-end p-4">
-    <span class="text-white font-fusion-pixel text-xl mr-4">{{ props.activeNavName }}</span>
+    <span class="text-primary-500 font-fusion-pixel text-xl mr-4">{{ props.activeNavName }}</span>
     <template v-for="(item, index) in availableItems" :key="index">
       <div class="flex items-center">
         <a

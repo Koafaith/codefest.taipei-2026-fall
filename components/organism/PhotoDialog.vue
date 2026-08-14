@@ -37,7 +37,7 @@ const setMainSwiper = (swiper: Swiper) => {
 // Reset swiper state when dialog closes
 watch(
   () => props.isOpen,
-  (newValue) => {
+  newValue => {
     if (!newValue) {
       thumbsSwiper.value = null;
     }

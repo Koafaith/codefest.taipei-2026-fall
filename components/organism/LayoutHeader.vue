@@ -7,7 +7,7 @@ const { activeDialog } = storeToRefs(dialogStore);
 </script>
 
 <template>
-  <header class="bg-black p-5 pb-0">
+  <header class="bg-[#032876] p-5 pb-0">
     <div class="container mx-auto border border-white h-full flex flex-col">
       <div class="m-1 border border-white flex-1 flex justify-between items-center lg:px-10">
         <NuxtLink
@@ -16,7 +16,6 @@ const { activeDialog } = storeToRefs(dialogStore);
           class="px-4 flex space-x-2"
           tabindex="0"
         >
-          <img src="/images/logos/logo-icon-ntpc.svg" class="lg:w-[40px] w-[30px]" alt="" />
           <img src="/images/logos/logo-icon-tpe.svg" class="lg:w-[40px] w-[30px]" alt="" />
         </NuxtLink>
         <!-- web -->
@@ -47,7 +46,6 @@ const { activeDialog } = storeToRefs(dialogStore);
                   class="inline-flex p-8 space-x-2"
                   @click="dialogStore.closeDialog()"
                 >
-                  <img src="/images/logos/logo-icon-ntpc.svg" width="40" alt="" />
                   <img src="/images/logos/logo-icon-tpe.svg" width="40" alt="" />
                 </NuxtLink>
                 <OrganismLayoutNavbar
