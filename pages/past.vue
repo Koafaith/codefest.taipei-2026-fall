@@ -100,17 +100,19 @@ const videoList = computed<PastVideo[]>(() => getI18nList<PastVideo>('past.video
                           />
                         </div>
                         <div
-                          class="lg:block flex items-center mt-2 lg:text-lg text-base text-white"
+                          class="flex justify-between items-center mt-2 lg:text-lg text-base text-white"
                         >
-                          <p class="mr-2 lg:mr-0">{{ group.ranking }} |</p>
-                          <p class="flex justify-between items-center">
+                          <span class="lg:block flex items-center">
+                            <span class="mr-2 lg:mr-0">{{ group.ranking }} |</span>
                             <span>{{ group.team_name }}</span>
+                          </span>
+                          <span>
                             <img
                               src="@/assets/images/icons/primary-right-arrow.svg"
                               width="24"
                               alt=""
                             />
-                          </p>
+                          </span>
                         </div>
                       </a>
                     </div>
@@ -208,16 +210,16 @@ const videoList = computed<PastVideo[]>(() => getI18nList<PastVideo>('past.video
                           />
                         </div>
                         <div
-                          class="lg:block flex items-center mt-2 lg:text-lg text-base text-white"
+                          class="flex justify-between items-center mt-2 lg:text-lg text-base text-white"
                         >
-                          <p class="flex justify-between items-center">
-                            <span>{{ group.title }}</span>
+                          <span>{{ group.title }}</span>
+                          <span>
                             <img
                               src="@/assets/images/icons/primary-right-arrow.svg"
                               width="24"
                               alt=""
                             />
-                          </p>
+                          </span>
                         </div>
                       </a>
                     </div>
