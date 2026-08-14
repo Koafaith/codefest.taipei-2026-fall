@@ -108,8 +108,7 @@ const videoList = computed<PastVideo[]>(() => getI18nList<PastVideo>('past.video
                             <img
                               src="@/assets/images/icons/primary-right-arrow.svg"
                               width="24"
-                              class="lg:inline-block hidden"
-                              alt="white-right-arrow"
+                              alt=""
                             />
                           </p>
                         </div>
@@ -216,8 +215,7 @@ const videoList = computed<PastVideo[]>(() => getI18nList<PastVideo>('past.video
                             <img
                               src="@/assets/images/icons/primary-right-arrow.svg"
                               width="24"
-                              class="lg:inline-block hidden"
-                              alt="white-right-arrow"
+                              alt=""
                             />
                           </p>
                         </div>
@@ -322,8 +320,7 @@ const videoList = computed<PastVideo[]>(() => getI18nList<PastVideo>('past.video
                             <img
                               src="@/assets/images/icons/primary-right-arrow.svg"
                               width="24"
-                              class="lg:inline-block hidden"
-                              alt="white-right-arrow"
+                              alt=""
                             />
                           </span>
                         </div>
