@@ -14,33 +14,33 @@ const prospectusContents = computed(() => {
       <div class="relative lg:mb-0 mb-12">
         <!-- desktop 背景圖 -->
         <img
-          src="@/assets/images/img-rules-bg.png"
+          src="@/assets/images/img-rules-bg.svg"
           class="lg:w-2/3 w-[95%] lg:block hidden"
           alt="背景圖"
         />
         <!-- desktop image -->
         <img
-          src="@/assets/images/img-rules.jpg"
+          src="@/assets/images/img-rules.png"
           class="absolute top-[12%] left-[12%] right-0 lg:block hidden"
           :style="{ width: 'calc(100% - 12%)' }"
           alt="程式儀表板大黑客松宣傳圖"
         />
         <!-- mobile 背景圖 -->
         <img
-          src="@/assets/images/img-rules-bg-mobile.png"
+          src="@/assets/images/img-rules-bg-mobile.svg"
           class="lg:w-2/3 w-[95%] lg:hidden block"
           alt="背景圖"
         />
         <!-- mobile image -->
         <img
-          src="@/assets/images/img-rules-mobile.jpg"
+          src="@/assets/images/img-rules-mobile.png"
           class="absolute top-[10%] left-[16%] lg:hidden block"
           :style="{ width: 'calc(100% - 16%)' }"
           alt="程式儀表板大黑客松宣傳圖"
         />
       </div>
     </div>
-    <div class="lg:p-10 p-4 border-b border-white bg-primary-300">
+    <div class="lg:p-10 p-4 border-b border-white">
       <div class="text-white leading-loose mb-6">
         <p class="text-xl text-center mb-4">
           {{ tm('rules.content_title') }}
@@ -57,14 +57,14 @@ const prospectusContents = computed(() => {
             y: 20,
           }"
           :href="tm('rules.prospectus.download_url')"
-          class="w-1/2 lg:w-auto lg:min-w-60"
+          class="min-w-60"
           :icon-type="'download'"
         >
           下載規則
         </AtomButton>
       </div>
     </div>
-    <div class="lg:p-10 p-4 border-b border-white">
+    <div class="lg:p-10 p-4">
       <p class="text-2xl text-center mb-8">
         {{ tm('rules.prospectus.title') }}
       </p>

@@ -40,7 +40,7 @@ html {
 }
 
 body {
-    background-color: theme("colors.primary.500");
+    background-color: #84d1f9;
 }
 
 button {
@@ -98,9 +98,72 @@ button {
 }
 
 .judge-box {
-    @apply border-4 border-white aspect-square;
+    @apply border border-primary-500 aspect-square;
 }
 
 .video-box {
-    @apply border-4 border-white aspect-video;
+    @apply aspect-video;
+}
+
+/* ------------------------------------------------------------------ */
+/* 各頁共用的 section 版面（首頁、參賽回顧、競賽規則…）                */
+/* ------------------------------------------------------------------ */
+
+/** section 內容區底色（body 底色維持較深的 #84d1f9，形成層次） */
+.content-section>div {
+    background-color: #edf7fe;
+}
+
+/**
+ * 底色改為淺色後，section 內的文字改成主色深藍。
+ * 這裡刻意用屬性選擇器 [class~='text-white'] 而不是 .text-white，
+ * 因為別處有 @apply text-white，若寫成 .text-white，
+ * Tailwind 解析 @apply 時會把這條規則一起套進去，
+ * 導致那些元素的白字被改成深藍而看不見。
+ */
+.content-section {
+    color: theme("colors.primary.500");
+
+    [class~="text-white"] {
+        color: theme("colors.primary.500");
+    }
+
+    /** 內部框線一律改深藍（原本是白色或 Tailwind 預設灰，在淺底上都看不清楚） */
+    [class*="border"] {
+        border-color: theme("colors.primary.500");
+    }
+
+    /** 例外：深底區塊（bg-primary-300）維持原本的白字白框 */
+    .bg-primary-300 {
+        color: theme("colors.black");
+
+        [class~="text-white"] {
+            color: theme("colors.white");
+        }
+
+        [class*="border"] {
+            border-color: theme("colors.white");
+        }
+    }
+
+    /** 比照報名按鈕：#d9fe68 底、主色深藍字與框線（Footer 的同名 class 是 outline，不受影響） */
+    .connect-btn {
+        @apply px-6 py-2 border border-primary-500 text-primary-500;
+        background-color: #d9fe68;
+    }
+}
+
+/**
+ * 標題為正常佔位元素（不絕對定位、不加底色），深藍字置中。
+ * 下方內容區塊本身已有 padding，所以標題只補等量的上留白、
+ * 下留白歸零，視覺上才會落在正中間。
+ */
+.section-title {
+    @apply text-primary-500 lg:text-4xl text-[28px] text-center;
+    @apply px-6 pb-0 lg:pt-5 pt-3;
+
+    /** 下方區塊的上留白也取一半，標題帶才會等比縮小又維持垂直置中 */
+    &+* {
+        @apply lg:!pt-5 !pt-3;
+    }
 }

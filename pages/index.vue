@@ -22,12 +22,6 @@ const runtimeConfig = useRuntimeConfig();
 const headerHeight = ref(0);
 const bannerHeight = ref('100vh');
 
-/** banner content 列表 */
-const bannerContentList = computed<{ label: string; value: string }[]>(() => {
-  const data = tm('hero_banner.content');
-  return Array.isArray(data) ? data : Object.values(data); // 轉換 Object 為 Array
-});
-
 /** 評審列表 */
 const judgeList = computed<JudgeList[]>(() => {
   const data = tm('rules.judges').list;
@@ -219,60 +213,17 @@ const newsKeyword = ref('');
 <template>
   <div>
     <!-- 第1幀 - Hero Banner -->
-    <section class="flex flex-col h-full lg:p-0 p-5 relative" :style="{ minHeight: bannerHeight }">
-      <div class="lg:border-0 border border-white flex flex-1">
-        <div
-          class="lg:border-0 m-1 border border-white text-white flex-1 flex items-center justify-center text-center bg-tp"
-        >
-          <!-- desktop noise -->
-          <img
-            class="lg:block hidden hero-banner-noise hero-banner-noise--1"
-            src="@/assets/images/hero-banner-noise1.svg"
-            alt="noise"
-          />
-          <img
-            class="lg:block hidden hero-banner-noise hero-banner-noise--3"
-            src="@/assets/images/hero-banner-noise3.svg"
-            alt="noise"
-          />
-          <div class="p-10 flex flex-col justify-around h-full max-h-[500px] relative">
-            <!-- desktop noise -->
-            <img
-              class="lg:block hidden hero-banner-noise hero-banner-noise--2"
-              src="@/assets/images/hero-banner-noise2.svg"
-              alt="noise"
-            />
-            <!-- mobile noise -->
-            <img
-              class="lg:hidden block hero-banner-noise"
-              src="@/assets/images/hero-banner-noise-mobile.svg"
-              alt="noise"
-            />
-            <!-- title -->
-            <p class="lg:text-2xl text-xl font-fusion-pixel text-are-you-ready mt-6">
-              {{ tm('hero_banner.section_title') }}
-            </p>
-            <img
-              src="@/assets/images/hero-banner-title.svg"
-              class="mx-auto"
-              alt="城市儀表板大黑客松"
-            />
-            <!-- <p class="text-7xl">
-              城市儀表板
-              <br />
-              大黑客松
-            </p> -->
-            <!-- <p
-              v-for="item in bannerContentList"
-              :key="item.label"
-              class="lg:flex items-center font-fusion-pixel"
-            >
-              <span class="lg:mr-4 lg:text-base text-sm lg:inline block lg:mb-0 mb-2">{{
-                item.label
-              }}</span>
-              <span class="lg:text-4xl text-2xl lg:inline block">{{ item.value }}</span>
-            </p> -->
-            <!-- <div class="flex justify-center">
+    <section
+      class="hero-banner flex flex-col h-full 2xl:px-0 p-5 relative"
+      :style="{ '--banner-height': bannerHeight }"
+    >
+      <!-- 外框：最大寬度 1440；未達 1440 時由 section 的 padding 產生左右留白 -->
+      <div class="hero-banner-frame w-full max-w-[1440px] mx-auto flex flex-1">
+        <!-- 外框線：淺色底上用主色深藍把 banner 框出來 -->
+        <div class="border border-primary-500 flex flex-1">
+          <div class="text-white flex-1 flex items-center justify-center text-center bg-tp">
+            <!-- 標題與競賽日期／地點已包含在底圖中，這裡只留報名按鈕 -->
+            <div class="hero-banner-cta">
               <AtomButton
                 v-kb-focus="{ id: 'index-button-1-2', x: 1, y: 2 }"
                 class="min-w-60"
@@ -283,7 +234,7 @@ const newsKeyword = ref('');
               >
                 {{ isRegistrationClosed ? '報名截止' : '立即報名' }}
               </AtomButton>
-            </div> -->
+            </div>
           </div>
         </div>
       </div>
@@ -295,11 +246,11 @@ const newsKeyword = ref('');
       <div class="lg:flex justify-start hidden">
         <MoleculeSectionNav active-nav-name="past" :focus-y="30" />
       </div>
-      <section id="past" class="2xl:p-0 p-5">
-        <div class="border border-white relative">
-          <div class="m-1 border border-white">
+      <section id="past" class="content-section 2xl:p-0 p-5">
+        <div class="border border-primary-500 relative">
+          <div>
             <p class="section-title font-fusion-pixel">參賽回顧</p>
-            <div class="lg:p-10 p-6 border border-b-white">
+            <div class="lg:p-10 p-6 border-b border-b-white">
               <!-- 影片列表 -->
               <!-- pc swiper -->
               <div class="hidden lg:block">
@@ -325,7 +276,7 @@ const newsKeyword = ref('');
                           y: 31,
                         }"
                         href="#"
-                        class="m-1 inline-block"
+                        class="m-1 inline-block border border-primary-500 p-2"
                         @click.prevent="
                           activeWinningTeam = group;
                           dialogStore.openDialog(DIALOG_NAMES.WINNING_TEAM);
@@ -346,7 +297,7 @@ const newsKeyword = ref('');
                           <span>{{ group.ranking }} | {{ group.team_name }}</span>
                           <span>
                             <img
-                              src="@/assets/images/icons/white-right-arrow.svg"
+                              src="@/assets/images/icons/primary-right-arrow.svg"
                               width="24"
                               alt=""
                             />
@@ -366,6 +317,7 @@ const newsKeyword = ref('');
                 >
                   <a
                     href="#"
+                    class="block border border-primary-500 p-2"
                     @click.prevent="
                       activeWinningTeam = group;
                       dialogStore.openDialog(DIALOG_NAMES.WINNING_TEAM);
@@ -394,7 +346,10 @@ const newsKeyword = ref('');
                 </div>
               </div>
             </div>
-            <div v-if="pastTotalPages > 1" class="hidden lg:block py-4 px-10 border border-b-white">
+            <div
+              v-if="pastTotalPages > 1"
+              class="hidden lg:block py-4 px-10 border-b border-b-white"
+            >
               <!-- 分頁控制 -->
               <div class="flex justify-end items-center space-x-2 text-white font-px437">
                 <button
@@ -406,7 +361,7 @@ const newsKeyword = ref('');
                   class="past-swiper-button-prev"
                 >
                   <img
-                    src="@/assets/images/icons/white-down-arrow.svg"
+                    src="@/assets/images/icons/primary-down-arrow.svg"
                     alt="arrow"
                     width="14"
                     class="rotate-90"
@@ -422,7 +377,7 @@ const newsKeyword = ref('');
                   class="past-swiper-button-next"
                 >
                   <img
-                    src="@/assets/images/icons/white-down-arrow.svg"
+                    src="@/assets/images/icons/primary-down-arrow.svg"
                     alt="arrow"
                     width="14"
                     class="-rotate-90"
@@ -430,7 +385,7 @@ const newsKeyword = ref('');
                 </button>
               </div>
             </div>
-            <div class="flex justify-between items-center p-10 bg-primary-300 m-1">
+            <div class="flex justify-between items-center p-10 bg-[#edf7fe]">
               <!-- 文字區塊 (lg 以上才顯示) -->
               <div class="hidden lg:block flex-1">
                 <p class="font-px437 text-white typing-container">READ MORE COMPETITIONS：VIEW⭢</p>
@@ -464,40 +419,40 @@ const newsKeyword = ref('');
       <div class="lg:flex justify-end hidden">
         <MoleculeSectionNav active-nav-name="rules" :focus-y="3" />
       </div>
-      <section id="rules" class="2xl:p-0 p-5">
-        <div class="border border-white relative">
-          <div class="m-1 border border-white">
+      <section id="rules" class="content-section 2xl:p-0 p-5">
+        <div class="border border-primary-500 relative">
+          <div>
             <p class="section-title font-fusion-pixel">
               {{ tm('rules.section_title') }}
             </p>
-            <div class="text-white p-10 text-center border border-b-white">
+            <div class="text-white p-10 text-center border-b border-b-white">
               <p class="whitespace-pre-wrap">{{ tm('rules.description') }}</p>
             </div>
-            <div class="grid lg:grid-cols-5 grid-cols-1 border border-b-white">
-              <div class="lg:col-span-3 lg:p-16 p-4 lg:border lg:border-r-white">
+            <div class="grid lg:grid-cols-5 grid-cols-1 border-b border-b-white">
+              <div class="lg:col-span-3 lg:p-16 p-4 lg:border-r lg:border-r-white">
                 <div class="relative">
                   <!-- desktop 背景圖 -->
                   <img
-                    src="@/assets/images/img-rules-bg.png"
+                    src="@/assets/images/img-rules-bg.svg"
                     class="lg:w-2/3 w-[95%] lg:block hidden"
                     alt="背景圖"
                   />
                   <!-- desktop image -->
                   <img
-                    src="@/assets/images/img-rules.jpg"
+                    src="@/assets/images/img-rules.png"
                     class="absolute top-[12%] left-[12%] right-0 lg:block hidden"
                     :style="{ width: 'calc(100% - 12%)' }"
                     alt="程式儀表板大黑客松宣傳圖"
                   />
                   <!-- mobile 背景圖 -->
                   <img
-                    src="@/assets/images/img-rules-bg-mobile.png"
+                    src="@/assets/images/img-rules-bg-mobile.svg"
                     class="lg:w-2/3 w-[95%] lg:hidden block"
                     alt="背景圖"
                   />
                   <!-- mobile image -->
                   <img
-                    src="@/assets/images/img-rules-mobile.jpg"
+                    src="@/assets/images/img-rules-mobile.png"
                     class="absolute top-[10%] left-[16%] lg:hidden block"
                     :style="{ width: 'calc(100% - 16%)' }"
                     alt="程式儀表板大黑客松宣傳圖"
@@ -543,7 +498,7 @@ const newsKeyword = ref('');
               </div>
             </div>
             <div
-              class="flex flex-col lg:flex-row justify-between items-center lg:p-10 p-4 bg-primary-300 m-1"
+              class="flex flex-col lg:flex-row justify-between items-center lg:p-10 p-4 bg-[#edf7fe]"
             >
               <!-- 文字區塊 (lg 以上才顯示) -->
               <div class="hidden lg:block flex-1">
@@ -564,7 +519,7 @@ const newsKeyword = ref('');
                   }"
                   :to="ROUTE_PATHS.RULES"
                   :icon-type="'arrow'"
-                  class="w-1/2 lg:w-auto lg:min-w-60 text-center block"
+                  class="min-w-60"
                 >
                   瞭解詳情
                 </AtomButton>
@@ -586,8 +541,8 @@ const newsKeyword = ref('');
             </div>
 
             <!-- 評審介紹 -->
-            <div v-if="tm('rules.judges').available" class="judge border border-t-white">
-              <div class="judge border border-t-white">
+            <div v-if="tm('rules.judges').available" class="judge border-t border-t-white">
+              <div class="judge">
                 <div class="p-10">
                   <p class="font-fusion-pixel text-2xl text-white text-center">本屆評審介紹</p>
                 </div>
@@ -600,13 +555,13 @@ const newsKeyword = ref('');
                         x: 1,
                         y: index + 6,
                       }"
-                      class="w-full flex items-center justify-between p-2 border border-t-white border-b-white"
+                      class="w-full flex items-center justify-between p-2 border-t border-b border-t-white border-b-white"
                     >
                       <p class="text-white text-center font-fusion-pixel mx-auto">
                         {{ item.name }}
                       </p>
                       <img
-                        src="@/assets/images/icons/white-down-arrow.svg"
+                        src="@/assets/images/icons/primary-down-arrow.svg"
                         alt="arrow"
                         width="20"
                         class="absolute right-5 transition-transform duration-300"
@@ -628,7 +583,9 @@ const newsKeyword = ref('');
                                 class="w-full h-full object-cover object-top"
                                 :alt="`評審照片-${judge.name}`"
                               />
-                              <p class="px-4 py-2 bg-white absolute -left-3 -bottom-3">
+                              <p
+                                class="px-4 py-2 bg-white border border-primary-500 absolute -left-3 -bottom-3"
+                              >
                                 {{ judge.name }}
                               </p>
                             </div>
@@ -659,7 +616,9 @@ const newsKeyword = ref('');
                                   class="w-full h-full object-cover object-top"
                                   :alt="`評審照片-${judge.name}`"
                                 />
-                                <p class="px-4 py-2 bg-white absolute -left-3 -bottom-3">
+                                <p
+                                  class="px-4 py-2 bg-white border border-primary-500 absolute -left-3 -bottom-3"
+                                >
                                   {{ judge.name }}
                                 </p>
                               </div>
@@ -686,14 +645,14 @@ const newsKeyword = ref('');
       <div class="lg:flex justify-start hidden">
         <MoleculeSectionNav active-nav-name="schedule" :focus-y="8" />
       </div>
-      <section id="schedule" class="2xl:p-0 p-5">
-        <div class="border border-white relative">
-          <div class="m-1 border border-white">
+      <section id="schedule" class="content-section 2xl:p-0 p-5">
+        <div class="border border-primary-500 relative">
+          <div>
             <p class="section-title font-fusion-pixel">
               {{ tm('schedule.section_title') }}
             </p>
             <!-- <div
-              class="lg:flex block justify-center items-center font-fusion-pixel text-white lg:p-10 px-2 py-4 pt-6 text-center border border-b-white"
+              class="lg:flex block justify-center items-center font-fusion-pixel text-white lg:p-10 px-2 py-4 pt-6 text-center border-b border-b-white"
             >
               <p class="mb-4 lg:mb-0">競賽倒數</p>
               <MoleculeCountDown :target-date="new Date(tm('schedule.count_down'))" />
@@ -712,12 +671,8 @@ const newsKeyword = ref('');
                         x: 1,
                         y: 9 + index,
                       }"
-                      class="schedule-tab relative p-6 border border-white text-xl text-center cursor-pointer mb-4 hover:bg-primary-50 hover:text-primary-500"
-                      :class="
-                        activeSchedule.id === tab.id
-                          ? 'bg-primary-50 text-primary-500 border-0 shadow-[4px_4px_0px_black]'
-                          : 'text-white'
-                      "
+                      class="schedule-tab relative p-6 border border-white text-xl text-center cursor-pointer mb-4 bg-[#d9fe68] text-primary-500"
+                      :class="activeSchedule.id === tab.id ? 'shadow-[4px_4px_0px_black]' : ''"
                       @click="activeSchedule = tab"
                     >
                       {{ tab.schedule_name }}
@@ -728,7 +683,7 @@ const newsKeyword = ref('');
                           index === 0 &&
                           scheduleList.findIndex(tab => tab.id === activeSchedule.id) === index
                         "
-                        class="absolute top-1/2 right-[-100%] w-[100%] h-[2px] bg-white"
+                        class="absolute top-1/2 right-[-100%] w-[100%] h-[2px] bg-primary-500"
                       ></div>
 
                       <!-- 其他選項：水平 → 垂直 → 水平的折線 -->
@@ -737,7 +692,7 @@ const newsKeyword = ref('');
                           index > 0 &&
                           scheduleList.findIndex(tab => tab.id === activeSchedule.id) === index
                         "
-                        class="absolute right-[-20px] top-1/2 h-[2px] bg-white"
+                        class="absolute right-[-20px] top-1/2 h-[2px] bg-primary-500"
                         :style="{
                           width: tabToContentDistance / 2 + 'px',
                           right: -tabToContentDistance / 2 + 'px',
@@ -748,7 +703,7 @@ const newsKeyword = ref('');
                           index > 0 &&
                           scheduleList.findIndex(tab => tab.id === activeSchedule.id) === index
                         "
-                        class="absolute w-[2px] bg-white"
+                        class="absolute w-[2px] bg-primary-500"
                         :style="{
                           right: -tabToContentDistance / 2 + 'px',
                           height: (tabHeight + 16) * index + 2 + 'px',
@@ -760,7 +715,7 @@ const newsKeyword = ref('');
                           index > 0 &&
                           scheduleList.findIndex(tab => tab.id === activeSchedule.id) === index
                         "
-                        class="absolute h-[2px] bg-white"
+                        class="absolute h-[2px] bg-primary-500"
                         :style="{
                           width: tabToContentDistance / 2 + 2 + 'px',
                           right: -tabToContentDistance + 'px',
@@ -771,11 +726,11 @@ const newsKeyword = ref('');
                   </div>
                 </div>
               </div>
-              <div class="col-span-5 bg-primary-300 border border-white z-0 right-content">
+              <div class="col-span-5 bg-[#edf7fe] border border-white z-0 right-content">
                 <!-- 右側內容區 -->
                 <div class="flex-1 text-white">
                   <div
-                    class="flex justify-between items-center p-4 border border-b-white min-h-[83px]"
+                    class="flex justify-between items-center p-4 border-b border-b-white min-h-[83px]"
                   >
                     <p class="text-xl whitespace-pre-wrap">
                       {{ activeSchedule.schedule_sub_name }}
@@ -853,24 +808,24 @@ const newsKeyword = ref('');
                 :default-open="activeSchedule.id === tab.id"
               >
                 <DisclosureButton
-                  class="w-full flex items-center justify-between p-6 border border-t-white border-b-white transition-colors duration-200"
-                  :class="[open ? 'bg-primary-50 text-primary-500' : 'text-white']"
+                  class="w-full flex items-center justify-between p-6 border-t border-b border-t-white border-b-white transition-colors duration-200"
+                  :class="[open ? 'bg-[#d9fe68]' : '']"
                 >
-                  <p class="text-center mx-auto" :class="open ? 'text-primary-500' : 'text-white'">
+                  <p class="text-center mx-auto text-primary-500">
                     {{ tab.schedule_name }}
                   </p>
                   <img
-                    src="@/assets/images/icons/white-down-arrow.svg"
+                    src="@/assets/images/icons/primary-down-arrow.svg"
                     alt="arrow"
                     width="20"
                     class="absolute right-5 transition-transform duration-300"
                     :class="{ 'rotate-180': open }"
                   />
                 </DisclosureButton>
-                <DisclosurePanel class="bg-primary-300">
+                <DisclosurePanel class="bg-[#edf7fe]">
                   <!-- 右側內容區 -->
                   <div class="flex-1 text-white">
-                    <div class="flex flex-col text-center p-4 border border-b-white">
+                    <div class="flex flex-col text-center p-4 border-b border-b-white">
                       <p class="text-xl mb-2 whitespace-pre-wrap">
                         {{ tab.schedule_sub_name }}
                       </p>
@@ -936,14 +891,14 @@ const newsKeyword = ref('');
       <div class="lg:flex justify-end hidden">
         <MoleculeSectionNav active-nav-name="news" :focus-y="20" />
       </div>
-      <section id="news" class="2xl:p-0 p-5">
+      <section id="news" class="content-section 2xl:p-0 p-5">
         <div class="grid grid-cols-5">
           <div class="lg:col-span-3 col-span-5">
-            <div class="border border-white relative">
-              <div class="m-1 border border-white">
+            <div class="border border-primary-500 relative">
+              <div>
                 <p class="section-title font-fusion-pixel">最新消息</p>
 
-                <div class="lg:px-10 lg:py-14 p-4 pt-10 border border-b-white">
+                <div class="lg:px-10 lg:py-14 p-4 pt-10 border-b border-b-white">
                   <!-- 功能列 -->
                   <div class="flex flex-wrap gap-4 mb-6 text-white">
                     <!-- 排序 -->
@@ -1018,7 +973,7 @@ const newsKeyword = ref('');
                     </a>
                   </div>
                 </div>
-                <div class="hidden lg:flex justify-between items-center p-10 bg-primary-300 m-1">
+                <div class="hidden lg:flex justify-between items-center p-10 bg-[#edf7fe]">
                   <!-- 文字區塊 (lg 以上才顯示) -->
                   <div class="flex-1">
                     <p class="font-px437 text-white typing-container">READ MORE：⭡⭣</p>
@@ -1055,17 +1010,20 @@ const newsKeyword = ref('');
       <div class="lg:flex justify-end hidden">
         <MoleculeSectionNav active-nav-name="sponsor" :focus-y="40" />
       </div>
-      <section id="sponsor" class="2xl:p-0 p-5">
-        <div class="border border-white relative">
-          <div class="m-1 border border-white">
+      <section id="sponsor" class="content-section 2xl:p-0 p-5">
+        <div class="border border-primary-500 relative">
+          <div>
             <p class="section-title font-fusion-pixel">{{ tm('sponsor').section_title }}</p>
-            <div class="p-10 border border-b-white">
+            <div class="p-10">
               <!-- 輪播效果 -->
               <div class="relative w-full overflow-hidden">
                 <!-- Desktop 輪播 -->
                 <div class="hidden lg:block">
                   <div class="marquee-container">
-                    <div class="marquee-content marquee-left flex" :style="{ animationDuration: marqueeAnimationDuration }">
+                    <div
+                      class="marquee-content marquee-left flex"
+                      :style="{ animationDuration: marqueeAnimationDuration }"
+                    >
                       <!-- 重複多次內容以實現無縫循環 -->
                       <div
                         v-for="(sponsor, index) in duplicatedSponsorList"
@@ -1088,7 +1046,10 @@ const newsKeyword = ref('');
                 <div class="lg:hidden block">
                   <!-- 第一排：往右移動 -->
                   <div class="marquee-container mb-4">
-                    <div class="marquee-content marquee-right flex" :style="{ animationDuration: marqueeAnimationDuration }">
+                    <div
+                      class="marquee-content marquee-right flex"
+                      :style="{ animationDuration: marqueeAnimationDuration }"
+                    >
                       <!-- 重複多次內容以實現無縫循環 -->
                       <div
                         v-for="(sponsor, index) in duplicatedSponsorList"
@@ -1108,7 +1069,10 @@ const newsKeyword = ref('');
 
                   <!-- 第二排：往左移動 -->
                   <div class="marquee-container">
-                    <div class="marquee-content marquee-left flex" :style="{ animationDuration: marqueeAnimationDuration }">
+                    <div
+                      class="marquee-content marquee-left flex"
+                      :style="{ animationDuration: marqueeAnimationDuration }"
+                    >
                       <!-- 重複多次內容以實現無縫循環 -->
                       <div
                         v-for="(sponsor, index) in duplicatedSponsorList"
@@ -1154,6 +1118,7 @@ const newsKeyword = ref('');
 <style lang="postcss">
 .text-are-you-ready {
   @apply relative;
+
   &::before {
     content: url('@/assets/images/are-you-ready.svg');
     position: absolute;
@@ -1166,59 +1131,65 @@ const newsKeyword = ref('');
   }
 }
 
+/** 第1幀滿版底圖：桌機高度依底圖比例（1440:513）呈現完整一張，不裁切 */
+.hero-banner {
+  /** 手機維持原本的滿版高度（視窗高扣掉 header 與 controlbar） */
+  @media (max-width: 1024px) {
+    min-height: var(--banner-height, 100vh);
+  }
+}
+
+/**
+ * 外框：寬度隨螢幕等比縮放（桌機最大 1440），
+ * 高度依底圖比例換算，讓底圖完整呈現、不被裁切
+ */
+.hero-banner-frame {
+  /** 高度改由底圖比例決定，不再被 flex 撐滿 */
+  flex: none;
+}
+
 .bg-tp {
   @apply relative;
-  &::before {
-    content: url('@/assets/images/hero-banner-tpe.svg');
-    background-repeat: no-repeat;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-  }
+  background-position: center;
+  background-repeat: no-repeat;
+  /** 搭配下方的 aspect-ratio，contain 剛好鋪滿且不裁切 */
+  background-size: contain;
 
-  &::after {
-    content: url('@/assets/images/hero-banner-ntpc.svg');
-    background-repeat: no-repeat;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-  }
-}
-@media (max-width: 1024px) {
-  .bg-tp::before,
-  .bg-tp::after {
-    display: none;
-  }
+  /** 手機：直版底圖 340:734 */
+  background-image: url('@/assets/images/hero-banner-bg-mobile.svg');
+  aspect-ratio: 340 / 734;
 
-  .bg-tp {
-    background-image: url('@/assets/images/hero-banner-tp.svg');
-    background-position: bottom;
-    background-repeat: no-repeat;
-    background-size: contain;
+  /** 桌機：橫版底圖 1297:495 */
+  @media (min-width: 1025px) {
+    background-image: url('@/assets/images/hero-banner-bg-desktop.svg');
+    aspect-ratio: 1297 / 495;
   }
 }
 
-.hero-banner-noise {
+/**
+ * 報名按鈕：因為 .bg-tp 有固定 aspect-ratio，
+ * 這裡用「百分比」定位就會跟著底圖等比縮放，
+ * 不論螢幕多寬都固定在底圖上的同一個相對位置。
+ */
+.hero-banner-cta {
   @apply absolute;
-  &--1 {
-    @apply left-16 top-14;
-  }
-  &--2 {
-    @apply left-6 top-[33%];
-  }
-  &--3 {
-    @apply right-16 top-20;
-  }
 
-  animation: move-noise 1s infinite steps(1);
+  /** 手機：水平置中、落在標題下方（底圖上標題結束於 32.6%） */
+  left: 50%;
+  top: 36%;
+  transform: translateX(-50%);
 
-  @media (max-width: 1024px) {
-    @apply left-4 top-[8%];
+  /** 桌機：水平對齊標題中線（25.4% 是底圖上標題的中線）、落在標題下方 */
+  @media (min-width: 1025px) {
+    left: 25.4%;
+    top: 63%;
+    transform: translateX(-50%);
   }
 }
 
 .rules-noise {
   @apply absolute;
+
   &--1 {
     @apply top-1/2 -translate-y-1/2 right-8;
   }
@@ -1226,11 +1197,13 @@ const newsKeyword = ref('');
   &--2 {
     @apply -bottom-12 right-0;
   }
+
   animation: move-noise 1s infinite steps(1);
 }
 
 .news-noise {
   @apply absolute;
+
   &--1 {
     @apply top-[24%] right-2;
   }
@@ -1238,6 +1211,7 @@ const newsKeyword = ref('');
   &--2 {
     @apply bottom-16 left-[24%];
   }
+
   animation: move-noise 1s infinite steps(1);
 }
 
@@ -1245,35 +1219,35 @@ const newsKeyword = ref('');
   0% {
     transform: translateX(0);
   }
+
   50% {
     transform: translateX(5px);
   }
+
   100% {
     transform: translateX(0);
   }
 }
 
-.section-title {
-  @apply text-white lg:text-4xl text-[28px] absolute -top-7 left-1/2 -translate-x-1/2;
-  @apply px-6 py-2 bg-primary-500;
-}
-
-.connect-btn {
-  @apply px-6 py-2 border border-white text-white;
-}
+/** .content-section / .section-title / .connect-btn 已移到 assets/main.scss 供所有頁面共用 */
 
 .typing-container {
-  display: inline-block; /* 保持游標跟隨文字 */
-  white-space: pre-wrap; /* 支援換行 */
-  word-wrap: break-word; /* 響應式適應容器寬度 */
-  font-size: 20px; /* 文字大小 */
+  display: inline-block;
+  /* 保持游標跟隨文字 */
+  white-space: pre-wrap;
+  /* 支援換行 */
+  word-wrap: break-word;
+  /* 響應式適應容器寬度 */
+  font-size: 20px;
+  /* 文字大小 */
 
   &::after {
     content: '';
     display: inline-block;
     width: 4px;
     height: 1em;
-    background-color: white;
+    /** 三條橫幅都改成淺底了，游標跟著文字用主色深藍 */
+    background-color: theme('colors.primary.500');
     animation: blink 1s steps(1) infinite;
   }
 }
@@ -1287,26 +1261,33 @@ const newsKeyword = ref('');
 
 /** 輪播 */
 .marquee-container {
-  height: 120px; /* Desktop 高度 */
+  height: 120px;
+  /* Desktop 高度 */
   overflow: hidden;
   position: relative;
 
   @media (max-width: 1024px) {
-    height: auto; /* Mobile 高度自適應圖片 */
+    height: auto;
+    /* Mobile 高度自適應圖片 */
   }
 
   .marquee-content {
     display: flex;
     animation-play-state: running;
-    width: max-content; /* 讓內容自然展開 */
+    width: max-content;
+    /* 讓內容自然展開 */
 
     img {
-      max-width: none; /* 移除寬度限制 */
-      height: 100%; /* 讓圖片填滿容器高度 */
-      object-fit: contain; /* 保持比例 */
+      max-width: none;
+      /* 移除寬度限制 */
+      height: 100%;
+      /* 讓圖片填滿容器高度 */
+      object-fit: contain;
+      /* 保持比例 */
 
       @media (max-width: 1024px) {
-        height: auto; /* Mobile 改用 Tailwind class 的固定高度 */
+        height: auto;
+        /* Mobile 改用 Tailwind class 的固定高度 */
       }
     }
   }
@@ -1329,16 +1310,20 @@ const newsKeyword = ref('');
   0% {
     transform: translateX(0);
   }
+
   100% {
-    transform: translateX(-50%); /* 只移動一半，因為內容已經重複了 */
+    transform: translateX(-50%);
+    /* 只移動一半，因為內容已經重複了 */
   }
 }
 
 /* 向右滑動 - 無限輪播 */
 @keyframes marquee-right {
   0% {
-    transform: translateX(-50%); /* 從一半開始 */
+    transform: translateX(-50%);
+    /* 從一半開始 */
   }
+
   100% {
     transform: translateX(0);
   }
@@ -1361,8 +1346,10 @@ const newsKeyword = ref('');
 .scroll-arrow {
   display: flex;
   align-items: center;
-  justify-content: center; /* 讓文字置中 */
-  gap: 10px; /* 圖示與文字間距 */
+  justify-content: center;
+  /* 讓文字置中 */
+  gap: 10px;
+  /* 圖示與文字間距 */
 
   &::before {
     content: url('@/assets/images/icons/scroll-left.svg');
@@ -1378,13 +1365,17 @@ const newsKeyword = ref('');
 }
 
 .text-ellipsis {
-  white-space: nowrap; /* 禁止換行 */
-  overflow: hidden; /* 隱藏超出部分 */
-  text-overflow: ellipsis; /* 超出顯示省略號 */
+  white-space: nowrap;
+  /* 禁止換行 */
+  overflow: hidden;
+  /* 隱藏超出部分 */
+  text-overflow: ellipsis;
+  /* 超出顯示省略號 */
 }
 
 .right-arrow {
   @apply relative block w-full pr-8;
+
   &::after {
     content: url('@/assets/images/icons/white-right-arrow.svg');
     position: absolute;

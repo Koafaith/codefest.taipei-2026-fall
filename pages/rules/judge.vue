@@ -1,4 +1,3 @@
-ts
 <script setup lang="ts">
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue';
 import type { JudgeList } from '~/interfaces/judge.interface';
@@ -23,13 +22,13 @@ const judgeList = computed<JudgeList[]>(() => tm('rules.judges').list as JudgeLi
     <template v-for="(item, index) in judgeList" :key="index">
       <Disclosure v-slot="{ open }" :default-open="true">
         <DisclosureButton
-          class="w-full h-16 flex items-center justify-between p-2 border border-t-white border-b-white bg-primary-300"
+          class="w-full h-16 flex items-center justify-between p-2 border-t border-b border-t-white border-b-white"
         >
           <p class="text-white text-lg text-center font-fusion-pixel mx-auto">
             {{ item.name }}
           </p>
           <img
-            src="@/assets/images/icons/white-down-arrow.svg"
+            src="@/assets/images/icons/primary-down-arrow.svg"
             alt="arrow"
             width="20"
             class="absolute right-5 transition-transform duration-300"
@@ -47,7 +46,9 @@ const judgeList = computed<JudgeList[]>(() => tm('rules.judges').list as JudgeLi
                     class="w-full h-full object-cover object-top"
                     :alt="`評審照片-${judge.name}`"
                   />
-                  <p class="px-4 py-2 bg-white text-black absolute -left-3 -bottom-3">
+                  <p
+                    class="px-4 py-2 bg-white text-primary-500 border border-primary-500 absolute -left-3 -bottom-3"
+                  >
                     {{ judge.name }}
                   </p>
                 </div>
@@ -74,7 +75,9 @@ const judgeList = computed<JudgeList[]>(() => tm('rules.judges').list as JudgeLi
                       class="w-full h-full object-cover object-top"
                       :alt="`評審照片-${judge.name}`"
                     />
-                    <p class="px-4 py-2 bg-white text-black absolute -left-3 -bottom-3">
+                    <p
+                      class="px-4 py-2 bg-white text-primary-500 border border-primary-500 absolute -left-3 -bottom-3"
+                    >
                       {{ judge.name }}
                     </p>
                   </div>

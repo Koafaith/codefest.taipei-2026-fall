@@ -98,10 +98,7 @@ watch(
                     </SwiperSlide>
                   </Swiper>
                   <!-- 自訂左按鈕 -->
-                  <button
-                    v-if="hasMultipleImages"
-                    class="team-swiper-button-prev custom-nav-btn"
-                  >
+                  <button v-if="hasMultipleImages" class="team-swiper-button-prev custom-nav-btn">
                     <img
                       src="@/assets/images/icons/white-down-arrow.svg"
                       alt="arrow"
@@ -110,10 +107,7 @@ watch(
                     />
                   </button>
                   <!-- 自訂右按鈕 -->
-                  <button
-                    v-if="hasMultipleImages"
-                    class="team-swiper-button-next custom-nav-btn"
-                  >
+                  <button v-if="hasMultipleImages" class="team-swiper-button-next custom-nav-btn">
                     <img
                       src="@/assets/images/icons/white-down-arrow.svg"
                       alt="arrow"

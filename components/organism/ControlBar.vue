@@ -25,7 +25,9 @@ const isRegistrationClosed = computed(() => {
 
   // 如果從 i18n 取得的日期字串無效，則視為未設定截止日 (即尚未截止)，並發出警告
   if (isNaN(deadline.getTime())) {
-    console.warn(`Invalid deadline date string from i18n: "${deadlineString}". Assuming registration is not closed.`);
+    console.warn(
+      `Invalid deadline date string from i18n: "${deadlineString}". Assuming registration is not closed.`
+    );
     return false;
   }
 
@@ -35,18 +37,18 @@ const isRegistrationClosed = computed(() => {
 
 <template>
   <div
-    class="controlbar container mx-auto lg:flex hidden 2xl:px-0 p-5 border-t border-b border-white lg:border-none bg-primary-300 lg:bg-primary-500 z-40 lg:space-x-2"
+    class="controlbar container mx-auto lg:flex hidden 2xl:px-0 p-5 border-t border-b border-primary-500 lg:border-none bg-[#84d1f9] z-40 lg:space-x-2"
     :class="[props.isAboveFooter ? '' : 'fixed bottom-0 left-0 right-0']"
   >
-    <div class="lg:block hidden border border-white bg-primary-500 w-full">
-      <div class="m-1 flex border border-white h-[96px]">
+    <div class="lg:block hidden border border-primary-500 bg-[#84d1f9] w-full">
+      <div class="m-1 flex border border-primary-500 h-[96px]">
         <div class="container mx-auto p-3 text-xl flex justify-between items-center">
           <div class="flex">
-            <p class="text-white font-fusion-pixel mr-10">⭠⭡⭢⭣：Select Item</p>
-            <p class="text-white font-fusion-pixel mr-10">Enter：Open Link</p>
-            <p class="text-white font-fusion-pixel">F1：Open Scanlines</p>
+            <p class="text-primary-500 font-fusion-pixel mr-10">⭠⭡⭢⭣：Select Item</p>
+            <p class="text-primary-500 font-fusion-pixel mr-10">Enter：Open Link</p>
+            <p class="text-primary-500 font-fusion-pixel">F1：Open Scanlines</p>
           </div>
-          <p class="text-white font-fusion-pixel">⌫：Back</p>
+          <p class="text-primary-500 font-fusion-pixel">⌫：Back</p>
         </div>
       </div>
     </div>

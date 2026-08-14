@@ -47,9 +47,7 @@ const scrollToTab = (index: number) => {
 
   if (scrollContainer) {
     const isEndIndex = index >= SCROLL_THRESHOLD_INDEX;
-    const scrollLeft = isEndIndex 
-      ? scrollContainer.scrollWidth - scrollContainer.clientWidth 
-      : 0;
+    const scrollLeft = isEndIndex ? scrollContainer.scrollWidth - scrollContainer.clientWidth : 0;
 
     scrollContainer.scrollTo({
       left: scrollLeft,
@@ -66,13 +64,13 @@ onMounted(() => {
 
 <template>
   <div>
-    <section class="2xl:px-0 p-5 pt-10">
-      <div class="border border-white relative">
-        <div class="m-1 border border-white">
+    <section class="content-section 2xl:px-0 p-5 pt-10">
+      <div class="border border-primary-500 relative">
+        <div>
           <p class="section-title font-fusion-pixel">
             {{ activeTab.name }}
           </p>
-          <div class="mt-8 lg:flex block">
+          <div class="lg:flex block">
             <div class="lg:block hidden p-4 border-t border-r border-white">
               <div class="flex">
                 <div class="relative flex flex-col">
@@ -85,12 +83,8 @@ onMounted(() => {
                         y: (index + 2) * 10,
                       }"
                       :to="tab.path"
-                      class="tab-item relative min-w-[220px] w-full p-6 border border-white text-xl text-center cursor-pointer font-fusion-pixel mb-4"
-                      :class="
-                        activeTab?.id === tab.id
-                          ? 'bg-primary-50 text-primary-500 border-0 shadow-[4px_4px_0px_black]'
-                          : 'text-white'
-                      "
+                      class="tab-item relative min-w-[220px] w-full p-6 border border-white text-xl text-center cursor-pointer font-fusion-pixel mb-4 bg-[#d9fe68] text-primary-500"
+                      :class="activeTab?.id === tab.id ? 'shadow-[4px_4px_0px_black]' : ''"
                     >
                       {{ tab.name }}
                     </NuxtLink>
