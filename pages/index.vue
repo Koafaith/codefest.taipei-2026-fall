@@ -125,14 +125,26 @@ const sponsorList = computed<Sponsor[]>(() => {
   return Array.isArray(data) ? data : Object.values(data); // 轉換 Object 為 Array
 });
 
+/** 輪播一份內容至少要有幾張，才不會比容器窄、在 -50% 接回時露出空白 */
+const MARQUEE_MIN_ITEMS_PER_HALF = 6;
+
+/** 輪播的「一份」內容：單位太少時先自我重複補滿 */
+const marqueeHalfList = computed(() => {
+  const originalList = sponsorList.value;
+  if (!originalList.length) return [];
+
+  const repeat = Math.ceil(MARQUEE_MIN_ITEMS_PER_HALF / originalList.length);
+  return Array.from({ length: repeat }, () => originalList).flat();
+});
+
 const duplicatedSponsorList = computed(() => {
   // 重複 2 次內容以確保無縫循環（動畫移動 -50% 剛好一份距離）
-  const originalList = sponsorList.value;
-  return [...originalList, ...originalList];
+  const halfList = marqueeHalfList.value;
+  return [...halfList, ...halfList];
 });
 
 // 每張圖固定 8 秒，圖片數量等比縮放，確保速度一致
-const marqueeAnimationDuration = computed(() => `${8 * sponsorList.value.length}s`);
+const marqueeAnimationDuration = computed(() => `${8 * marqueeHalfList.value.length}s`);
 
 // 存放距離
 const tabToContentDistance = ref(0);
@@ -1335,7 +1347,8 @@ const newsKeyword = ref('');
   align-items: center;
   justify-content: center;
   height: 100%;
-  min-width: 100vw;
+  /* 不設 min-width：一設成 100vw 每張 logo 就會各佔滿一個螢幕寬，
+     中間留下大片空白。2025 春季線上版也沒有這條。 */
 }
 
 .swiper-judge-slide {
