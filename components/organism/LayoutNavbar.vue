@@ -44,37 +44,41 @@ interface NavItem {
   path: string; // 用於 NuxtLink 的 'to' 或 <a> 的 'href'
   isExternal: boolean;
   target?: string; // 外部連結可能需要 target 屬性
+  available?: boolean; // 未設定時視為顯示
 }
 
 // 導覽項目列表，使用 computed 以確保 i18n 內容更新時也能反應
-const navItems = computed<NavItem[]>(() => [
-  {
-    text: '競賽規則',
-    path: ROUTE_PATHS.RULES,
-    isExternal: false,
-  },
-  {
-    text: '重要時程',
-    path: `${ROUTE_PATHS.RULES}${ROUTE_PATHS.SCHEDULE}`,
-    isExternal: false,
-  },
-  {
-    text: 'FAQ',
-    path: `${ROUTE_PATHS.RULES}${ROUTE_PATHS.FAQ}`,
-    isExternal: false,
-  },
-  {
-    text: '參賽回顧',
-    path: ROUTE_PATHS.PAST,
-    isExternal: false,
-  },
-  {
-    text: '歷屆紀錄',
-    path: tm('past_url'), // 假設 tm('past_url') 返回的是 URL 字串
-    isExternal: true,
-    target: '_blank',
-  },
-]);
+const navItems = computed<NavItem[]>(() =>
+  [
+    {
+      text: '競賽規則',
+      path: ROUTE_PATHS.RULES,
+      isExternal: false,
+    },
+    {
+      text: '重要時程',
+      path: `${ROUTE_PATHS.RULES}${ROUTE_PATHS.SCHEDULE}`,
+      isExternal: false,
+    },
+    {
+      text: 'FAQ',
+      path: `${ROUTE_PATHS.RULES}${ROUTE_PATHS.FAQ}`,
+      isExternal: false,
+    },
+    {
+      text: '參賽回顧',
+      path: ROUTE_PATHS.PAST,
+      isExternal: false,
+      available: tm('past').available,
+    },
+    {
+      text: '歷屆紀錄',
+      path: tm('past_url'), // 假設 tm('past_url') 返回的是 URL 字串
+      isExternal: true,
+      target: '_blank',
+    },
+  ].filter(item => item.available !== false)
+);
 </script>
 
 <template>
