@@ -1280,15 +1280,14 @@ const newsKeyword = ref('');
     img {
       max-width: none;
       /* 移除寬度限制 */
-      height: 100%;
-      /* 讓圖片填滿容器高度 */
+      width: auto;
       object-fit: contain;
       /* 保持比例 */
 
-      @media (max-width: 1024px) {
-        height: auto;
-        /* Mobile 改用 Tailwind class 的固定高度 */
-      }
+      /* 高度交給 markup 上的 h-[80px]／h-[60px] 決定。
+         這裡不能寫 height，否則會蓋掉 Tailwind class：
+         height: 100% 在自動高度的父層會解析成 auto，
+         點陣圖 logo（png/webp）就會以原始尺寸溢出 120px 容器被裁掉。 */
     }
   }
 
