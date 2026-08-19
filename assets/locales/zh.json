@@ -710,39 +710,15 @@
         "list": [
             {
                 "id": 0,
-                "image_url": "images/sponsors/(國立臺北商業大學企業管理系)logo.svg"
+                "image_url": "images/sponsors/青年局LOGO.svg"
             },
             {
                 "id": 1,
-                "image_url": "images/sponsors/(國立臺灣大學 電機工程學系學生會)NTUEESA_logo.svg"
+                "image_url": "images/sponsors/清華大學科技藝術研究所.webp"
             },
             {
                 "id": 2,
-                "image_url": "images/sponsors/實踐大學校徽及校名.svg"
-            },
-            {
-                "id": 3,
-                "image_url": "images/sponsors/sitcon_logo.svg"
-            },
-            {
-                "id": 4,
-                "image_url": "images/sponsors/師範大學_logo.svg"
-            },
-            {
-                "id": 5,
-                "image_url": "images/sponsors/OCF_logo.svg"
-            },
-            {
-                "id": 6,
-                "image_url": "images/sponsors/college-unit_LOGO-資訊管理學系.svg"
-            },
-            {
-                "id": 7,
-                "image_url": "images/sponsors/北科程式.svg"
-            },
-            {
-                "id": 8,
-                "image_url": "images/sponsors/梅竹黑客松_logo.svg"
+                "image_url": "images/sponsors/輔仁大學資管系.png"
             }
         ]
     },
