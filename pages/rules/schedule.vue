@@ -47,7 +47,7 @@ const scheduleList = computed(() => {
           <div
             class="text-center p-4 border-b border-b-white flex lg:flex-row flex-col items-center justify-between"
           >
-            <p class="text-xl mb-2 whitespace-pre-wrap">
+            <p class="text-xl mb-2 whitespace-pre-wrap lg:text-left">
               {{ tab.schedule_sub_name }}
             </p>
             <!-- 按鈕（根據類型顯示）-->
