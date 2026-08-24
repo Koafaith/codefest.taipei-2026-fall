@@ -17,7 +17,7 @@
         "section_title": "競賽規則",
         "description": "\"The power of open source is the power of the people.\"\n— Philippe Kahn\n（開源的力量就是人民的力量）",
         "content_title": "概念",
-        "content": "🎮 城市冒險任務，即將開啟！\n\n城市，就是一座等待探索的巨大冒險地圖！\n每一項市政服務都是一個任務，而你的創意與技術，就是解鎖城市新服務的關鍵技能！\n\n延續「台北通」的服務經驗，2026臺北秋季程式設計節再次集結各路開發好手，以城市通開源架構、開放資料與設計規範為冒險裝備，組隊挑戰城市裡的各種任務！\n\n💡 發現城市問題\n⚙️ 組合技術與創意\n🧩 開發市政微服務\n🚀 挑戰服務落地、解鎖城市新體驗！\n\n這一次，你不只是參加競賽，\n而是和夥伴一起接下城市任務，用程式碼打造更便利、更有創意的市政服務！\n\n📅 城市冒險集合日｜2026年11月7日－11月8日\n\n準備好你的技能、召集你的隊友——\n城市任務即將開啟，下一個被解鎖的市政服務，就由你來創造！",
+        "content": "🎮 城市冒險任務，即將開啟！\n\n城市，就是一座等待探索的巨大冒險地圖！\n每一項市政服務都是一個任務，而你的創意與技術，就是解鎖城市新服務的關鍵技能！\n\n延續「台北通」的服務經驗，2026臺北秋季程式設計節再次集結各路開發好手，以城市通開源架構、開放資料與設計規範為冒險裝備，組隊挑戰城市裡的各種任務！\n\n📍 城市冒險集合日｜2026年11月7日－11月8日\n\n準備好你的技能、召集你的隊友——\n城市任務即將開啟，下一個被解鎖的市政服務，就由你來創造！",
         "buttons": [],
         "judges": {
             "available": false,
@@ -729,23 +729,19 @@
                 "type": "流程疑問",
                 "list": [
                     {
-                        "title": "競賽什麼時候、在哪裡辦？",
-                        "content": "2025年5月31日（星期六）到6月1日（星期日），兩天一夜，在新北市板橋區中山路一段161號（新北市政府大樓）。"
+                        "title": "本次競賽什麼時候舉辦？在哪裡辦？",
+                        "content": "2026年11月7日（星期六）到11月8日（星期日），兩天一夜，在臺北市士林區三玉里忠誠路二段101號（臺北市立大學天母體育館）。"
                     },
                     {
-                        "title": "競賽主題是什麼?",
-                        "content": "分為指定題（雙北融合應用）與自選題（其他儀表板組件開發），詳情於工作坊公布。"
+                        "title": "本次競賽主題是什麼？",
+                        "content": "(一)、本競賽將以市政服務開源為方向，以此提升並完善各城市數位服務，翻轉數位公共服務體驗為目標。<br>(二)、競賽主題原則於工作坊說明概略方向，競賽當天正式公布內容，實際安排將依主辦單位規劃執行為主。"
                     },
                     {
-                        "title": "本次黑客松有什麼特別之處？",
-                        "content": "聚焦程式實作，僅限投影展示（儀表板）成果，禁用任何形式之簡報（如PPT），強調成果實用性，獲獎隊伍需賽後協作整合組件。由臺北市與新北市政府聯合主辦，推動跨縣市資訊共享與開源技術。"
+                        "title": "本次競賽的評分標準為何？",
+                        "content": "初審評分標準依「服務應用」、「視覺呈現」「技術完整度」排序比重；決審評分標準依「服務應用」、「服務完整度」、「技術穩定度」、「視覺呈現」及「創意及公益性」排序比重。"
                     },
                     {
-                        "title": "評審標準是什麼？",
-                        "content": "依「技術性」、「創新性」、「應用性」排序比重，詳細標準於工作坊公布。"
-                    },
-                    {
-                        "title": "獎項與獎金如何？",
+                        "title": "本次競賽有提供獎項或獎金嗎？",
                         "content": "第一名30萬元、第二名15萬元、第三名10萬元、三名佳作各5萬元。得獎隊伍需完成賽後協作義務，名次可從缺或並列，詳見競賽規則。"
                     },
                     {
@@ -754,63 +750,63 @@
                     },
                     {
                         "title": "如何報名與截止時間？",
-                        "content": "從網站首頁（<a href='https://codefest.taipei/' target='_blank' rel='noopener noreferrer' style='text-decoration: underline; color: #0000A3;'>https://codefest.taipei/</a>）點擊「報名按鈕」，填寫參賽資料，於2025年4月30日（星期二）23:59前提交，並收到系統確認信即完成。報名期間如資料異動（如隊員更換），請主動來信修正。"
+                        "content": "從網站首頁（<a href='https://codefest.taipei/' target='_blank' rel='noopener noreferrer' style='text-decoration: underline; color: #0000A3;'>https://codefest.taipei/</a>）點擊「報名按鈕」，填寫參賽資料，於2026年10月5日（星期一）11:59前提交，並收到系統確認信即完成。報名期間如資料異動（如隊員更換），請主動來信修正。"
                     },
                     {
                         "title": "隊伍人數與能力要求？",
-                        "content": "每隊3-5人，建議具備專案規劃、資料分析、資料工程、前後端工程能力。至少1名隊員必須實體參與2025年5月18日（星期日）工作坊。"
+                        "content": "本次活動每隊4-5人，建議具備專案規劃、資料分析、資料工程、前後端工程能力。至少1名隊員必須實體參與2026年10月25日（日）舉辦的工作坊。"
                     },
                     {
-                        "title": "報名資格限制？",
-                        "content": "年齡、身份、國籍不限，未滿18歲需附法定代理人同意書。報名時隊員皆需填寫「簡歷」（最多200字），描述個人在團隊中的角色、技術專長、過往開發經驗或得獎紀錄，簡歷將作為隊伍參賽資格審查的依據。"
+                        "title": "報名有資格限制嗎？",
+                        "content": "年齡、身份、國籍不限，未滿18歲需附法定代理人同意書。報名時隊員皆需上傳「簡歷」，描述個人在團隊中的角色、技術專長、過往開發經驗或得獎紀錄，簡歷將作為隊伍參賽資格審查的依據。"
                     },
                     {
-                        "title": "外國人可否參加？",
-                        "content": "不限國籍，請確保居留時間須大於 2025 年 6 月 1 日。若有特殊簽證或入境問題，請自行確保符合台灣法規。"
+                        "title": "外國人可以參加本次競賽嗎？",
+                        "content": "可以，本次競賽參賽資格不限國籍，但請外籍參賽者須於報名時提供居留證正反面影本，並且確保居留時間須大於2026年11月8日。若有特殊簽證或入境問題，請自行確保符合本國法規。"
                     },
                     {
                         "title": "可否同時參與不同隊伍？",
                         "content": "不可以，為確保所有參賽者參賽權益，每位參賽者僅能加入一個隊伍，不得同時參與多個隊伍。若發現重複報名，主辦單位有權取消重複報隊者參賽資格。"
                     },
                     {
-                        "title": "怎樣算報名成功?",
+                        "title": "如何確認報名成功？",
                         "content": "報名資料提交後，系統自動發信為資料提交成功；經由主辦單位資格書審，並以email通知是否需補件，補件完成才算完成報名。"
                     },
                     {
-                        "title": "送出的報名資料後，想要修改資料?",
-                        "content": "若報名資料有誤、隊員更換等重要資料異動等，請於2025年4月30日（星期三）報名截止前寄信至比賽的官方信箱（<a href='mailto:codefesttaipei@gov.taipei' target='_blank' rel='noopener noreferrer' style='text-decoration: underline; color: #0000A3;'>codefesttaipei@gov.taipei</a>），依主辦單位指示提供資料更新。"
+                        "title": "報名資料送出後，想要修改資料要怎麼辦？",
+                        "content": "若報名資料有誤、隊員更換等重要資料異動等，請於2026年10月5日（星期一）報名截止前寄信至比賽的官方信箱（<a href='mailto:codefesttaipei@gov.taipei' target='_blank' rel='noopener noreferrer' style='text-decoration: underline; color: #0000A3;'>codefesttaipei@gov.taipei</a>），依主辦單位指示提供資料更新。"
                     },
                     {
-                        "title": "報名費用？",
-                        "content": "免費。"
+                        "title": "本次競賽需要報名費用嗎？",
+                        "content": "為了鼓勵更多市民工程師參賽，本次活動全程免費。"
                     },
                     {
                         "title": "隊伍數量有限制？如何確認參賽？",
-                        "content": "參賽隊伍上限50隊，經由主辦單位綜合考量報名隊伍的書面資料、工作坊出席狀況與面談表現，最終於工作坊後公佈參賽名單。"
+                        "content": "本次參賽隊伍上限以40隊為原則，經由主辦單位綜合考量報名隊伍的書面資料、工作坊出席狀況與面談表現，最終於工作坊後公佈參賽名單。"
                     },
                     {
-                        "title": "收到參賽資格後，有隊員無法出席怎麼辦？",
-                        "content": "若隊員無法參賽，請於2025年5月23日（星期五）17:00前通知主辦單位。若競賽當日無正當理由缺席，將納入往後參與主辦單位類似競賽之報名資格入選參考。"
+                        "title": "工作坊可以不參加上午場，直接進行下午面試嗎？",
+                        "content": "工作坊時於報到時間未到，團隊將失去參賽資格。"
                     },
                     {
-                        "title": "請問官方說明會的時間及該如何參與？",
-                        "content": "2025年4月7日（星期一）17:00 線上舉辦，錯過可在官方YouTube頻道（<a href='https://www.youtube.com/@Code-FestTaipei' target='_blank' rel='noopener noreferrer' style='text-decoration: underline; color: #0000A3;'>@Code-FestTaipei</a>）回看。"
+                        "title": "工作坊時團隊可以多加1人旁聽嗎？",
+                        "content": "工作坊原則一隊以最多2人參加為主。"
                     },
                     {
-                        "title": "請問工作坊的時間及該如何參與？工作坊一定要參加嗎？",
-                        "content": "2025年5月18日（星期日）採實體與線上同步進行，每隊至少1人須實體參與，未到場將喪失參賽資格。"
+                        "title": "確認獲得參賽資格後，如果有隊員臨時無法出席怎麼辦？",
+                        "content": "若隊員無法參賽，請於2026年10月30日（星期五）中午12:00前通知主辦單位。若競賽當日無正當理由缺席，將納入往後主辦單位報名資格審核參考。"
                     },
                     {
-                        "title": "雙北駭客屋是什麼？",
-                        "content": "本次特別設立雙北駭客屋，提供給參賽隊伍賽前練習與互相交流的專屬空間，地址及開放時間詳見競賽規則。"
+                        "title": "請問競賽說明會的時間以及參與方式？",
+                        "content": "線上說明會將在2026年9月3日（四）17:30 於線上舉辦，如果錯過可在官方YouTube頻道（<a href='https://www.youtube.com/@Code-FestTaipei' target='_blank' rel='noopener noreferrer' style='text-decoration: underline; color: #0000A3;'>@Code-FestTaipei</a>）觀看重播影片。"
                     },
                     {
-                        "title": "提供餐食嗎？",
-                        "content": "第一天提供午餐、下午茶、晚餐、宵夜，第二天提供早餐、午餐、下午茶，並設零食區及休息區（含素食選項）。"
+                        "title": "競賽期間有提供餐食嗎？",
+                        "content": "競賽期間將為所有參賽者準備餐食。第一天提供午餐、下午茶、晚餐、宵夜，第二天提供早餐、午餐、下午茶，並設有不間斷供應的零食區，餐食內容都有提供素食選項。"
                     },
                     {
-                        "title": "必須全程留在會場嗎？有淋浴設施嗎？",
-                        "content": "2025年6月1日（星期日）下午評審階段需到場，其餘時間可自由離開休息。會場提供休息區，但無淋浴設施。"
+                        "title": "競賽期間一定要全程在場嗎？有提供休息區嗎？",
+                        "content": "參賽隊伍在11月8日（星期日）評審階段需全程在場，其餘時間可視隊伍需求自行安排。會場將提供休息區，包含按摩區、懶骨頭放鬆區、淋浴區等。"
                     }
                 ]
             },
@@ -818,52 +814,20 @@
                 "type": "技術疑問",
                 "list": [
                     {
-                        "title": "什麼是臺北城市儀表板？",
-                        "content": "臺北城市儀表板是臺北市政府資訊局開發的城市級資料視覺化平台（<a href='https://citydashboard.taipei/' target='_blank' rel='noopener noreferrer' style='text-decoration: underline; color: #0000A3;'>https://citydashboard.taipei/</a>），以組件形式呈現市政開放資料，涵蓋統計、空間、時間三維度。作為開源專案，原始碼可於GitHub獲取（<a href='https://github.com/taipei-doit/Taipei-City-Dashboard' target='_blank' rel='noopener noreferrer' style='text-decoration: underline; color: #0000A3;'>https://github.com/taipei-doit/Taipei-City-Dashboard</a>）。"
+                        "title": "本次競賽有什麼特色？",
+                        "content": "本競賽以臺北市資料大平台、政府資料開放平臺以及台北通微服務為基礎，聚焦程式實作，成果需要現場DEMO操作，禁用任何形式的簡報（如PPT），強調成果實用性，獲獎隊伍需賽後與市府團隊協作整合組件。"
                     },
                     {
-                        "title": "主要開發技術有哪些？",
-                        "content": "前端採用Vue 3，視覺化使用Apexcharts（圖表）與Mapbox（地圖），後端使用Go語言並透過Docker部署。建議開發環境為Windows或macOS，詳見技術文件說明（<a href='https://tuic.gov.taipei/documentation/front-end/prerequisites' target='_blank' rel='noopener noreferrer' style='text-decoration: underline; color: #0000A3;'>https://tuic.gov.taipei/documentation/front-end/prerequisites</a>）。"
+                        "title": "請問本次競賽開發項目？",
+                        "content": "(一)、主要目標：以台北通為基礎，開發城市通微服務新功能。<br>(二)、資料來源：程式運作時，所需之核心與關鍵資料應使用公開且合法之開放資料，並備註引用來源；其餘非必要資料得以模擬資料替代。<br>(三)、第三方應用：競賽作品中僅得使用開源軟體或套件，限制使用可能產生後續授權費、訂閱費、付費功能或影響成果上架之商用模組及第三方套件；且最終成果須符合可移轉、可維運及可上架之要求，違反本規定者，主辦單位得視情況扣分或取消參賽資格。"
                     },
                     {
-                        "title": "這次黑客松要開發什麼？",
-                        "content": "以「雙北共融儀表板」為主題，開發新北市與臺北市共融的組件或功能，例如優化介面、強化資料整合或擴充視覺化模組。具體方向與技術細節見競賽規則，工作坊將進一步說明。"
+                        "title": "請問本次競賽是否提供開發主機以及資料庫環境等資源？",
+                        "content": "本次競賽參賽隊伍需自備競賽相關電腦設備，主辦單位僅提供電力、網路等必要資源，沒有提供主機、資料庫環境及AI工具等。"
                     },
                     {
-                        "title": "有哪些資源可用來準備？",
-                        "content": "可參考臺北城市儀表板（<a href='https://citydashboard.taipei/' target='_blank' rel='noopener noreferrer' style='text-decoration: underline; color: #0000A3;'>https://citydashboard.taipei/</a>）、臺北城市儀表板技術文件（<a href='https://tuic.gov.taipei/documentation/' target='_blank' rel='noopener noreferrer' style='text-decoration: underline; color: #0000A3;'>https://tuic.gov.taipei/documentation/</a>）、臺北資料大平台（<a href='https://data.taipei/' target='_blank' rel='noopener noreferrer' style='text-decoration: underline; color: #0000A3;'>https://data.taipei/</a>）、新北資料開放平台（<a href='https://data.ntpc.gov.tw/' target='_blank' rel='noopener noreferrer' style='text-decoration: underline; color: #0000A3;'>https://data.ntpc.gov.tw/</a>）、臺北市資訊局GitHub（<a href='https://github.com/taipei-doit/Taipei-City-Dashboard' target='_blank' rel='noopener noreferrer' style='text-decoration: underline; color: #0000A3;'>https://github.com/taipei-doit/Taipei-City-Dashboard</a>），以及官方YouTube頻道課程「城市儀表板開發建置指南」（<a href='https://www.youtube.com/@Code-FestTaipei' target='_blank' rel='noopener noreferrer' style='text-decoration: underline; color: #0000A3;'>https://www.youtube.com/@Code-FestTaipei</a>）。"
-                    },
-                    {
-                        "title": "什麼是組件？資料格式有規範嗎？",
-                        "content": "組件是儀表板的視覺化元件，包含統計資料（圖表）、空間資料（地圖）及部分歷史資料。資料格式請遵循前端技術文件「Chart Data圖表資料樣式」（<a href='https://tuic.gov.taipei/documentation/front-end/chart-data' target='_blank' rel='noopener noreferrer' style='text-decoration: underline; color: #0000A3;'>https://tuic.gov.taipei/documentation/front-end/chart-data</a>）、「Map Data空間資料樣式」（<a href='https://tuic.gov.taipei/documentation/front-end/map-data' target='_blank' rel='noopener noreferrer' style='text-decoration: underline; color: #0000A3;'>https://tuic.gov.taipei/documentation/front-end/map-data</a>）及後端「Component Data APIs組件資料API」（<a href='https://tuic.gov.taipei/documentation/back-end/component-data-apis' target='_blank' rel='noopener noreferrer' style='text-decoration: underline; color: #0000A3;'>https://tuic.gov.taipei/documentation/back-end/component-data-apis</a>）。"
-                    },
-                    {
-                        "title": "市政資料從哪裡找？要自行清理嗎？",
-                        "content": "資料主要來自臺北資料大平台（<a href='https://data.taipei/' target='_blank' rel='noopener noreferrer' style='text-decoration: underline; color: #0000A3;'>https://data.taipei/</a>）、新北資料開放平台（<a href='https://data.ntpc.gov.tw/' target='_blank' rel='noopener noreferrer' style='text-decoration: underline; color: #0000A3;'>https://data.ntpc.gov.tw/</a>）及其他政府開放平台，儀表板現有資料也可使用。參賽者需自行搜尋與清理資料，詳見技術文件「Data Sources and Cleaning」（<a href='https://tuic.gov.taipei/documentation/front-end/data-sources-and-cleaning' target='_blank' rel='noopener noreferrer' style='text-decoration: underline; color: #0000A3;'>https://tuic.gov.taipei/documentation/front-end/data-sources-and-cleaning</a>）。資料搜查與清洗是競賽重點。"
-                    },
-                    {
-                        "title": "開發功能有限制嗎？程式撰寫與GitHub貢獻流程有沒有規範？",
-                        "content": "只要符合主題即可開發，但須遵循臺北城市儀表板技術文件「Contribution Guide 協作指南」(<a href='https://tuic.gov.taipei/documentation/front-end/contribution-overview' target='_blank' rel='noopener noreferrer' style='text-decoration: underline; color: #0000A3;'>https://tuic.gov.taipei/documentation/front-end/contribution-overview</a>)規範，若大幅改動框架影響整併，評審將酌情扣分，細節於5月18日工作坊說明。"
-                    },
-                    {
-                        "title": "如何使用GitHub程式碼開發？",
-                        "content": "需fork臺北城市儀表板GitHub程式庫（<a href='https://github.com/taipei-doit/Taipei-City-Dashboard' target='_blank' rel='noopener noreferrer' style='text-decoration: underline; color: #0000A3;'>https://github.com/taipei-doit/Taipei-City-Dashboard</a>），於本地端開發，資料以臺北資料大平台（<a href='https://data.taipei/' target='_blank' rel='noopener noreferrer' style='text-decoration: underline; color: #0000A3;'>https://data.taipei/</a>）、新北資料開放平台（<a href='https://data.ntpc.gov.tw/' target='_blank' rel='noopener noreferrer' style='text-decoration: underline; color: #0000A3;'>https://data.ntpc.gov.tw/</a>）為主。詳見競賽規則與5月18日工作坊說明。"
-                    },
-                    {
-                        "title": "黑客松競賽評審的 Demo 展示有什麼規範？",
-                        "content": "初選與決選均由參賽者需自帶電腦於本地端 localhost展示成果為主，以專注開發並減少部署環境影響。"
-                    },
-                    {
-                        "title": "如果獲獎，後續協作如何進行？",
-                        "content": "得獎隊伍將於2週內收到協作項目通知郵件，需在2個月內針對競賽期間開發的作品完成清理、除錯與調整（不含新功能），以利獎金核發。詳情請參閱活動須知。"
-                    },
-                    {
-                        "title": "技術文件有中文版嗎？相關問題諮詢？",
-                        "content": "技術文件可於頁面右上方切換中文版。如有疑問，可寄信至官方信箱（<a href='mailto:codefesttaipei@gov.taipei' target='_blank' rel='noopener noreferrer' style='text-decoration: underline; color: #0000A3;'>codefesttaipei@gov.taipei</a>）或於5月18日工作坊提問。"
-                    },
-                    {
-                        "title": "本次競賽是否可使用 AI？",
-                        "content": "✅ 可以！因AI已是趨勢，各團隊可自由規劃導入AI協助開發。<br>✅ 團隊應具備維護修改作品原始碼之軟體工程能力，不宜以全 Vibe Coding 方式進行開發，如最終因團隊未能依主辦單位要求，將得獎作品指定元素完成官方整併，將喪失領獎資格。<br>✅ 作品之元件、函式庫、工具與流程均需符合競賽授權規範，且強烈不建議作品常態性串接包含但不限於佈署大型語言模型之第三方運算資源，如因此導致官方整併困難，亦將間接導致領獎資格喪失。"
+                        "title": "有哪些資料可用來準備？",
+                        "content": "可參考城市通網站（<a href='https://townpass.taipei/' target='_blank' rel='noopener noreferrer' style='text-decoration: underline; color: #0000A3;'>https://townpass.taipei/</a>）、政府資料開放平臺（<a href='https://data.gov.tw/' target='_blank' rel='noopener noreferrer' style='text-decoration: underline; color: #0000A3;'>https://data.gov.tw/</a>）、臺北資料大平台（<a href='https://data.taipei/' target='_blank' rel='noopener noreferrer' style='text-decoration: underline; color: #0000A3;'>https://data.taipei/</a>）、臺北市資訊局GitHub（<a href='https://github.com/taipei-doit' target='_blank' rel='noopener noreferrer' style='text-decoration: underline; color: #0000A3;'>https://github.com/taipei-doit</a>）。"
                     }
                 ]
             }
