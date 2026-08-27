@@ -9,7 +9,7 @@ const contactBtns = computed(() => {
 </script>
 
 <template>
-  <footer class="bg-[#032876] p-5 pt-0 font-fusion-pixel">
+  <footer class="bg-chrome-500 p-5 pt-0 font-fusion-pixel">
     <div class="container mx-auto border border-white">
       <div class="m-1 border border-white">
         <div class="grid lg:grid-cols-5 grid-cols-1 text-white">
