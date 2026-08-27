@@ -39,6 +39,11 @@ export default {
       third: {
         500: '#55FE55',
       },
+      /** Header／Footer 底色，取代原本的深藍 #032876。 */
+      chrome: {
+        500: '#1B87BE',
+        600: '#15719F',
+      },
       gray: {
         200: '#B2B2B2',
         500: '#A8A8A8',

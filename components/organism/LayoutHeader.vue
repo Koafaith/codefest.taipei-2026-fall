@@ -7,7 +7,7 @@ const { activeDialog } = storeToRefs(dialogStore);
 </script>
 
 <template>
-  <header class="bg-[#032876] p-5 pb-0">
+  <header class="bg-chrome-500 p-5 pb-0">
     <div class="container mx-auto border border-white h-full flex flex-col">
       <div class="m-1 border border-white flex-1 flex justify-between items-center lg:px-10">
         <NuxtLink
