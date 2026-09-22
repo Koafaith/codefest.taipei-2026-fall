@@ -37,11 +37,12 @@ const confirmClose = () => {
         </button>
 
         <!-- 標題 -->
-        <DialogTitle
-          class="text-primary-500 text-2xl text-center pb-4 mb-4 pt-16 custom-dashed dashed-black"
-        >
-          報名表單
-        </DialogTitle>
+        <div class="pb-4 mb-4 pt-16 custom-dashed dashed-black">
+          <DialogTitle class="text-primary-500 text-2xl text-center"> 報名表單 </DialogTitle>
+          <p class="text-primary-500 text-base text-center mt-3 px-4">
+            {{ tm('apply_period') }}
+          </p>
+        </div>
 
         <!-- 滾動區域 -->
         <DialogDescription class="flex-1 overflow-y-auto px-4 pb-6">

@@ -72,9 +72,14 @@ const tag = computed(() => {
   }
 
   &:disabled {
-    @apply cursor-not-allowed border-gray-200;
+    /** 停用時內外兩層框線改為淺灰、底色淺灰，文字深灰；外層不填底色以保留兩層框線之間的間隙 */
+    @apply cursor-not-allowed;
+    border-color: #e2e2e2;
+
     span {
-      @apply bg-gray-200 text-gray-700;
+      border-color: #e2e2e2;
+      background-color: #e2e2e2;
+      color: #6f6f6f;
     }
   }
 
