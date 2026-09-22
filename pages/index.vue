@@ -151,10 +151,25 @@ const tabToContentDistance = ref(0);
 // 存放高度
 const tabHeight = ref(0);
 
+const now = ref(Date.now());
+let nowTimer: ReturnType<typeof setInterval> | null = null;
+
 const isRegistrationClosed = computed(() => {
-  const deadline = new Date(tm('schedule.apply_count_down'));
-  return new Date() > deadline;
+  const deadlineString = tm('schedule.apply_count_down');
+  const deadline = new Date(deadlineString);
+  if (isNaN(deadline.getTime())) {
+    console.warn(
+      `Invalid deadline date string from i18n: "${deadlineString}". Assuming registration is not closed.`
+    );
+    return false;
+  }
+  return now.value > deadline.getTime();
 });
+
+const openApplyDialog = () => {
+  if (isRegistrationClosed.value) return;
+  dialogStore.openDialog(DIALOG_NAMES.APPLY);
+};
 
 /** 選中的獲獎團隊 */
 const activeWinningTeam = ref<PastWinningTeam | null>(null);
@@ -167,6 +182,10 @@ onMounted(() => {
     calculateBannerHeight();
     calculateDistance();
   });
+
+  nowTimer = setInterval(() => {
+    now.value = Date.now();
+  }, 1000);
 });
 
 onUnmounted(() => {
@@ -174,6 +193,7 @@ onUnmounted(() => {
     calculateBannerHeight();
     calculateDistance();
   });
+  if (nowTimer) clearInterval(nowTimer);
 });
 
 const calculateBannerHeight = () => {
@@ -241,8 +261,8 @@ const newsKeyword = ref('');
                 class="min-w-60"
                 :icon-type="isRegistrationClosed ? null : 'arrow'"
                 :disabled="isRegistrationClosed"
-                @click="dialogStore.openDialog(DIALOG_NAMES.APPLY)"
-                @keydown.enter.prevent="dialogStore.openDialog(DIALOG_NAMES.APPLY)"
+                @click="openApplyDialog"
+                @keydown.enter.prevent="openApplyDialog"
               >
                 {{ isRegistrationClosed ? '報名截止' : '立即報名' }}
               </AtomButton>
@@ -663,12 +683,13 @@ const newsKeyword = ref('');
             <p class="section-title font-fusion-pixel">
               {{ tm('schedule.section_title') }}
             </p>
-            <!-- <div
+            <div
+              v-if="!isRegistrationClosed"
               class="lg:flex block justify-center items-center font-fusion-pixel text-white lg:p-10 px-2 py-4 pt-6 text-center border-b border-b-white"
             >
-              <p class="mb-4 lg:mb-0">競賽倒數</p>
-              <MoleculeCountDown :target-date="new Date(tm('schedule.count_down'))" />
-            </div> -->
+              <p class="mb-4 lg:mb-0">報名截止倒數</p>
+              <MoleculeCountDown :target-date="new Date(tm('schedule.apply_count_down'))" />
+            </div>
             <!-- desktop -->
             <div class="hidden lg:p-10 px-2 py-4 lg:grid lg:grid-cols-7">
               <div class="col-span-2">
