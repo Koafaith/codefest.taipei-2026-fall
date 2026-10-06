@@ -705,20 +705,52 @@
         }
     },
     "sponsor": {
-        "available": false,
+        "available": true,
         "section_title": "感謝單位",
         "list": [
             {
                 "id": 0,
-                "image_url": "images/sponsors/青年局LOGO.svg"
+                "image_url": "images/sponsors/codefest-logo1.png"
             },
             {
                 "id": 1,
-                "image_url": "images/sponsors/清華大學科技藝術研究所.webp"
+                "image_url": "images/sponsors/codefest-logo2.png"
             },
             {
                 "id": 2,
-                "image_url": "images/sponsors/輔仁大學資管系.png"
+                "image_url": "images/sponsors/codefest-logo3.png"
+            },
+            {
+                "id": 3,
+                "image_url": "images/sponsors/codefest-logo4.png"
+            },
+            {
+                "id": 4,
+                "image_url": "images/sponsors/codefest-logo5.png"
+            },
+            {
+                "id": 5,
+                "image_url": "images/sponsors/codefest-logo6.png"
+            },
+            {
+                "id": 6,
+                "image_url": "images/sponsors/codefest-logo7.png"
+            },
+            {
+                "id": 7,
+                "image_url": "images/sponsors/codefest-logo8.png"
+            },
+            {
+                "id": 8,
+                "image_url": "images/sponsors/codefest-logo9.png"
+            },
+            {
+                "id": 9,
+                "image_url": "images/sponsors/codefest-logo10.png"
+            },
+            {
+                "id": 10,
+                "image_url": "images/sponsors/codefest-logo11.png"
             }
         ]
     },
