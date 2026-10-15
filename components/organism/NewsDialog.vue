@@ -17,8 +17,10 @@ const isNewsTag = computed(() => props.activeNews?.tag === 'news');
 const displayTagText = computed(() => (isNewsTag.value ? '最新消息' : '媒體報導'));
 
 // 根據標籤類型動態應用顏色類別
-const tagOverrideClasses = computed(
-  () => (isNewsTag.value ? 'bg-primary-50 text-primary-500' : '') // 若不是 news 則不額外添加覆蓋類別，保留預設
+const tagOverrideClasses = computed(() =>
+  isNewsTag.value
+    ? 'bg-[#d9fe68] text-primary-500 border border-primary-500'
+    : 'bg-primary-500 text-white'
 );
 </script>
 
@@ -40,10 +42,7 @@ const tagOverrideClasses = computed(
         <div class="pt-16 px-6">
           <div class="text-lg mb-2 flex items-center">
             <span class="mr-2">{{ props.activeNews?.date }}</span>
-            <div
-              class="text-sm bg-secondary-500 text-white px-2 py-1 shadow-md"
-              :class="tagOverrideClasses"
-            >
+            <div class="text-sm px-2 py-1 shadow-md" :class="tagOverrideClasses">
               <span>{{ displayTagText }}</span>
             </div>
           </div>
