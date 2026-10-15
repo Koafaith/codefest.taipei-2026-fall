@@ -939,7 +939,7 @@ const newsKeyword = ref('');
                       <span class="mr-2">排序：</span>
                       <select
                         v-model="newsSort"
-                        class="bg-primary-300 border border-white px-2 py-1 pr-8 appearance-none"
+                        class="bg-white border border-primary-500 text-primary-500 px-2 py-1 pr-8 appearance-none"
                       >
                         <option value="newest">最新優先</option>
                         <option value="oldest">最舊優先</option>
@@ -950,7 +950,7 @@ const newsKeyword = ref('');
                       <span class="mr-2">時間：</span>
                       <select
                         v-model="newsTimeFilter"
-                        class="bg-primary-300 border border-white px-2 py-1 pr-8 appearance-none"
+                        class="bg-white border border-primary-500 text-primary-500 px-2 py-1 pr-8 appearance-none"
                       >
                         <option value="all">全部</option>
                         <option value="week">一週內</option>
@@ -964,12 +964,12 @@ const newsKeyword = ref('');
                         v-model="newsKeyword"
                         type="text"
                         placeholder="搜尋關鍵字..."
-                        class="bg-primary-300 border border-white px-2 py-1 flex-1"
+                        class="bg-white border border-primary-500 text-primary-500 placeholder:text-secondary-500 px-2 py-1 flex-1"
                       />
                     </div>
                   </div>
 
-                  <div class="space-y-6 text-white max-h-[347px] lg:pr-4 overflow-auto">
+                  <div class="space-y-6 text-white max-h-[347px] -mx-1 overflow-auto">
                     <a
                       v-for="(news, index) in availableNews"
                       :key="index"
@@ -994,8 +994,12 @@ const newsKeyword = ref('');
                       <div class="text-lg mb-2 flex items-center">
                         <span class="mr-2">{{ news.date }}</span>
                         <div
-                          class="text-sm bg-secondary-500 text-white px-2 py-1 shadow-md"
-                          :class="{ 'bg-primary-50 text-primary-500': news.tag === 'news' }"
+                          class="text-sm px-2 py-1 shadow-md"
+                          :class="
+                            news.tag === 'news'
+                              ? 'bg-[#d9fe68] text-primary-500 border border-primary-500'
+                              : 'bg-primary-500 !text-white'
+                          "
                         >
                           <span>{{ news.tag === 'news' ? '最新消息' : '媒體報導' }}</span>
                         </div>
@@ -1410,7 +1414,7 @@ const newsKeyword = ref('');
   @apply relative block w-full pr-8;
 
   &::after {
-    content: url('@/assets/images/icons/white-right-arrow.svg');
+    content: url('@/assets/images/icons/primary-right-arrow.svg');
     position: absolute;
     right: 0;
   }
@@ -1422,7 +1426,7 @@ const newsKeyword = ref('');
 
 /* 下拉選單箭頭樣式 */
 select {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='white' d='M6 8.825L1.175 4 2.238 2.938 6 6.7l3.763-3.762L10.825 4z'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%230000a3' d='M6 8.825L1.175 4 2.238 2.938 6 6.7l3.763-3.762L10.825 4z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 8px center;
   padding-right: 24px;
